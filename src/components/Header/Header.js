@@ -4,12 +4,13 @@ import { Link } from "react-router-dom";
 import './Header.css';
 import logo from '../../images/logo.svg';
 
-function Header(props) {
+export const Header = ({ children }) => {
   return (
     <header className="header">
-      <Link to="/" className="header__logo-link" aria-label="На главную">
-        <img className="header__logo-logo-img" src={logo} alt="Лого BeatFilm" />
+      <Link to="/" aria-label="На главную">
+        <img className="header__logo" src={logo} alt="Лого BeatFilm" />
       </Link>
+      {children}
     </header>
   )
 };

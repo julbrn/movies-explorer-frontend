@@ -1,0 +1,44 @@
+.about-project {
+  padding: 110px 0;
+}
+
+.two-columns {
+}
+.about-project__columns {
+}
+.about-project__column {
+}
+.about-project__subtitle {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.21;
+  letter-spacing: -4%;
+}
+
+.about-project__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+}
+.progress {
+}
+.progress__column {
+}
+.progress__column_color_green {
+}
+.progress__text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+}
+
+.progress__text-below {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.21;
+  color: #8b8b8b;
+}
+.progress__column_color_gray {
+}
+.progress__column_color_transparent {
+}

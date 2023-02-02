@@ -1,9 +1,10 @@
 .page {
   margin: 0;
-  padding: 0 70px;
+  padding: 0;
   min-height: 100vh;
-  min-width: 320px;
   width: 100%;
+  display: flex;
+  justify-content: center;
   box-sizing: border-box;
   font-family: Inter, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -21,4 +22,37 @@
   --background-color-accent: #272727;
   --grey-color: #303030;
   --mistake-color: #ee3465;
+}
+
+.content {
+  min-width: 320px;
+  max-width: 1280px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.section {
+  width: 100%;
+  box-sizing: border-box;
+  padding-left: 70px;
+  padding-right: 70px;
+  margin: 0;
+}
+
+.section__title {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 1.21;
+  letter-spacing: -4%;
+  width: 100%;
+  border-bottom: 1px solid #dadada;
+  padding-bottom: 23px;
+}
+
+.link {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--font-color-light);
 }

@@ -1,16 +1,21 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
-import Header from '../Header/Header.js';
-import Footer from '../Footer/Footer.js';
-import Main from '../Main/Main/Main.js';
+import { Routes, Route } from 'react-router-dom';
+import { Header } from '../Header/Header';
+import { Navigation } from '../Navigation/Navigation';
+import { Main } from '../Main/Main';
 import './App.css';
 
-function App() {
+export const App = () => {
   return (
+    <>
+      <Header>
+        <Navigation />
+      </Header>
 
-    <Header />
-
-
+      <Routes>
+        <Route path="/" element={<Main />} />
+      </Routes>
+    </>
   );
 };
 
