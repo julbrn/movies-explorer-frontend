@@ -8,5 +8,6 @@ export const Main = () => (
   <main className="main">
     <Promo />
     <AboutProject />
+    <Techs />
   </main>
 );
