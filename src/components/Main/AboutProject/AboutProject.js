@@ -3,7 +3,7 @@ import './AboutProject.css';
 export const AboutProject = () => (
   <section className="section about-project">
     <h2 className="section__title">О проекте</h2>
-    <div className="two-columns about-project__columns">
+    <div className="about-project__columns">
       <div className="about-project__column">
         <h2 className="about-project__subtitle">Дипломный проект включал 5 этапов</h2>
         <p className="about-project__text">Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.</p>
@@ -20,10 +20,10 @@ export const AboutProject = () => (
       <div className="progress__column progress__column_color_gray">
         <span className="progress__text">4 недели</span>
       </div>
-      <div className="progress__column progress__column_color_transparent">
+      <div className="progress__column">
         <span className="progress__text-below">Back-end</span>
       </div>
-      <div className="progress__column progress__column_color_transparent">
+      <div className="progress__column">
         <span className="progress__text-below">Front-end</span>
       </div>
     </div>
