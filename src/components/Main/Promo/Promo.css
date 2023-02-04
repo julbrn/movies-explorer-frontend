@@ -24,18 +24,6 @@
   }
 }
 
-.promo__links {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 30px;
-}
-
-@media screen and (max-width: 610px) {
-  .promo__links {
-    gap: 6px;
-  }
-}
-
 .promo__title {
   font-weight: 400;
   font-size: 58px;
@@ -63,18 +51,5 @@
   .promo__title {
     font-size: clamp(1.81rem, calc(1.27rem + 2.62vw), 2.5rem);
     padding-top: 220px;
-  }
-}
-
-.link_place_promo {
-  padding: 10px 0;
-  width: 96px;
-}
-
-@media screen and (max-width: 610px) {
-  .link_place_promo {
-    padding: 5px 0;
-    width: 82px;
-    border-radius: 6px;
   }
 }
