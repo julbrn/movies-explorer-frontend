@@ -12,5 +12,6 @@ export const Main = () => (
     </Promo>
     <AboutProject />
     <Techs />
+    <AboutMe />
   </main>
 );
