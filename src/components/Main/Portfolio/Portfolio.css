@@ -8,7 +8,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 1.11;
-  color: #8b8b8b;
+  color: var(--semi-transparent);
 }
 
 @media screen and (max-width: 610px) {
