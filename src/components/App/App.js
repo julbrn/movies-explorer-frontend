@@ -4,6 +4,7 @@ import { Main } from '../Main/Main';
 import { NotFound } from '../NotFound/NotFound';
 import { Register } from '../Register/Register';
 import { Login } from '../Login/Login';
+import { Profile } from '../Profile/Profile';
 import './App.css';
 
 export const App = () => {
@@ -33,7 +34,7 @@ export const App = () => {
         />
         <Route
           path="/profile"
-          element={<NotFound />}
+          element={<Profile />}
         />
       </Routes>
     </>
