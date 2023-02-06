@@ -1,27 +1,41 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { Header } from '../Header/Header';
-import { Navigation } from '../Navigation/Navigation';
 import { Main } from '../Main/Main';
-import { Footer } from '../Footer/Footer';
 import { NotFound } from '../NotFound/NotFound';
+import { Register } from '../Register/Register';
+import { Login } from '../Login/Login';
 import './App.css';
 
 export const App = () => {
   return (
     <>
-      <Header>
-        <Navigation />
-      </Header>
-
       <Routes>
         <Route path="/" element={<Main />} />
         <Route
           path="/404"
           element={<NotFound />}
         />
+        <Route
+          path="/movies"
+          element={<NotFound />}
+        />
+        <Route
+          path="/saved-movies"
+          element={<NotFound />}
+        />
+        <Route
+          path="/signup"
+          element={<Register />}
+        />
+        <Route
+          path="/signin"
+          element={<Login />}
+        />
+        <Route
+          path="/profile"
+          element={<NotFound />}
+        />
       </Routes>
-      <Footer />
     </>
   );
 };
