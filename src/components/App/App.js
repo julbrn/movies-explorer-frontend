@@ -5,6 +5,7 @@ import { NotFound } from '../NotFound/NotFound';
 import { Register } from '../Register/Register';
 import { Login } from '../Login/Login';
 import { Profile } from '../Profile/Profile';
+import { Preloader } from '../Preloader/Preloader';
 import './App.css';
 
 export const App = () => {
@@ -22,7 +23,7 @@ export const App = () => {
         />
         <Route
           path="/saved-movies"
-          element={<NotFound />}
+          element={<Preloader />}
         />
         <Route
           path="/signup"
