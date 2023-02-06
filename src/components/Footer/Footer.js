@@ -1,4 +1,7 @@
 import './Footer.css';
+import {
+  Link
+} from 'react-router-dom';
 
 export const Footer = () => (
   <footer className="section footer">
@@ -12,24 +15,24 @@ export const Footer = () => (
         </span>
         <ul className="footer__links">
           <li>
-            <a
-              href="https://melodyn.ru"
-              className="footer__link"
+            <Link
+              to="https://practicum.yandex.ru/"
+              className="link link_place_footer"
               target="_blank"
               rel="noreferrer"
             >
               Яндекс.Практикум
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="https://github.com/julbrn"
-              className="footer__link"
+            <Link
+              to="https://github.com/julbrn"
+              className=" link footer__link"
               target="_blank"
               rel="noreferrer"
             >
               Github
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

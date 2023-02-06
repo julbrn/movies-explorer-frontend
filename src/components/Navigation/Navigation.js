@@ -8,12 +8,12 @@ export const Navigation = () => {
         <li>
           <Link
             to="/signup"
-            className='link'>Регистрация</Link>
+            className='link link_type_signup'>Регистрация</Link>
         </li>
         <li>
           <Link
             to="/signin"
-            className='link link_place_header'>Войти</Link>
+            className='link link_type_signin'>Войти</Link>
         </li>
       </ul>
     </nav >

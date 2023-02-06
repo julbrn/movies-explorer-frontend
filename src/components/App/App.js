@@ -4,6 +4,7 @@ import { Header } from '../Header/Header';
 import { Navigation } from '../Navigation/Navigation';
 import { Main } from '../Main/Main';
 import { Footer } from '../Footer/Footer';
+import { NotFound } from '../NotFound/NotFound';
 import './App.css';
 
 export const App = () => {
@@ -15,6 +16,10 @@ export const App = () => {
 
       <Routes>
         <Route path="/" element={<Main />} />
+        <Route
+          path="/404"
+          element={<NotFound />}
+        />
       </Routes>
       <Footer />
     </>

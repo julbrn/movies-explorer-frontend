@@ -1,19 +1,14 @@
 .nav {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 .nav__links {
+  box-sizing: border-box;
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
   gap: 30px;
-}
-
-.link_place_header {
-  background-color: var(--accent-color);
-  border-radius: 3px;
-  padding: 8px 20px;
-  color: #000;
 }

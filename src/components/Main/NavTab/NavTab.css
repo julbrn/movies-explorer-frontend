@@ -9,16 +9,3 @@
     gap: 6px;
   }
 }
-
-.link_place_navtab {
-  padding: 10px 0;
-  width: 96px;
-}
-
-@media screen and (max-width: 610px) {
-  .link_place_navtab {
-    padding: 5px 0;
-    width: 82px;
-    border-radius: 6px;
-  }
-}
