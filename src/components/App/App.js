@@ -6,6 +6,7 @@ import { Register } from '../Register/Register';
 import { Login } from '../Login/Login';
 import { Profile } from '../Profile/Profile';
 import { Preloader } from '../Preloader/Preloader';
+import { Movies } from '../Movies/Movies';
 import './App.css';
 
 export const App = () => {
@@ -19,7 +20,7 @@ export const App = () => {
         />
         <Route
           path="/movies"
-          element={<NotFound />}
+          element={<Movies />}
         />
         <Route
           path="/saved-movies"

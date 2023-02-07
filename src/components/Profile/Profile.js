@@ -24,6 +24,7 @@ export const Profile = () => {
           <div className="profile__buttons">
             <button className="link link_type_edit">Редактировать</button>
             <button className="link link_type_logout">Выйти из аккаунта</button>
+            <button type="submit" className="button">Сохранить</button>
           </div>
         </form>
       </section>
