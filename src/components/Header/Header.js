@@ -7,7 +7,7 @@ export const Header = ({ children }) => {
   return (
     <header className="header">
       <Link to="/" aria-label="На главную">
-        <img className="header__logo" src={logo} alt="Лого BeatFilm" />
+        <img className="logo" src={logo} alt="Лого BeatFilm" />
       </Link>
       {children}
     </header>

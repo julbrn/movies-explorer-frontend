@@ -123,6 +123,14 @@
 
 @media screen and (max-width: 610px) {
   .about-me__image {
+    align-self: center;
+    width: 85%;
+    height: auto;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .about-me__image {
     width: 100%;
     min-height: 352px;
   }

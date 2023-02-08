@@ -12,12 +12,12 @@ export const Profile = () => {
             <h2 className="profile__greeting">Привет, некто!</h2>
             <label className="profile__label">
               <span className="profile__field-name">Имя</span>
-              <input className="profile__field" type="text" value="Чимс" name="name"
+              <input className="profile__field" type="text" defaultValue="Некто" name="name"
                 id="name" required />
             </label>
             <label className="profile__label">
               <span className="profile__field-name">E-mail</span>
-              <input className="profile__field profile__field_type_error" value="cheems@yandex.ru" type="text" name="email"
+              <input className="profile__field profile__field_type_error" defaultValue="cheems@yandex.ru" type="text" name="email"
                 id="email" required />
             </label>
           </fieldset>

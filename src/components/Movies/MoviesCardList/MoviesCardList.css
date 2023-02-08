@@ -9,17 +9,19 @@
   padding: 0;
   margin: 84px 0 74px;
   width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 24px;
+  display: grid;
+  width: 100%;
+  gap: 30px 24px;
+  grid-template-columns: repeat(auto-fit, minmax(284px, 1fr));
+  list-style-type: none;
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 767px) {
   .movies__list {
-    gap: 30px;
-    margin: 70px 0 80px;
+    max-width: 400px;
+    margin: 70px auto 80px;
+    grid-template-columns: minmax(284px, 1fr);
   }
 }
 

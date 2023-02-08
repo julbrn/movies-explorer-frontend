@@ -12,7 +12,7 @@ export const MoviesCard = ({ movieInfo }) => {
           <p className="card__duration">{movieInfo.duration}</p>
         </figcaption>
         <img className="card__img" src={movieInfo.img} alt={movieInfo.title} />
-        <button className={isLocationSaved ? "card__btn card__btn_saved" : `card__btn  ${movieInfo.saved ? "card__btn_active" : ""}`}></button>
+        <button className={isLocationSaved ? "card__btn card__btn_saved" : `card__btn  ${movieInfo.saved ? "card__btn_active" : ""}`} aria-label="Избранное"></button>
       </figure>
     </li>
   );

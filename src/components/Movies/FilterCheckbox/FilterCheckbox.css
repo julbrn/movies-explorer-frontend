@@ -1,6 +1,8 @@
 .shorts {
   display: flex;
   align-items: center;
+  min-width: 148px;
+  box-sizing: border-box;
 }
 
 .shorts__label {
@@ -9,6 +11,7 @@
   height: 14px;
   position: relative;
   width: 34px;
+  box-sizing: border-box;
 }
 
 .shorts__checkbox {
@@ -23,6 +26,8 @@
 }
 
 .shorts__toggle {
+  height: 14px;
+  width: 34px;
   background-color: #343434;
   bottom: 0;
   cursor: pointer;
