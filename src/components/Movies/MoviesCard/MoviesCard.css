@@ -69,7 +69,7 @@
   color: var(--semi-transparent);
 }
 
-.card__saved {
+.card__btn {
   position: absolute;
   top: 19px;
   right: 14px;
@@ -85,17 +85,15 @@
   transition: opacity 0.4s linear;
 }
 
-.card__saved:hover {
+.card__btn:hover {
   opacity: 0.8;
 }
 
-.card__saved_active {
-  position: absolute;
-  top: 19px;
-  right: 14px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
+.card__btn_active {
   background-color: var(--accent-color);
   background-image: url(../../../images/bookmark_icon_active.svg);
+}
+
+.card__btn_saved {
+  background-image: url(../../../images/saved_cross.svg);
 }
