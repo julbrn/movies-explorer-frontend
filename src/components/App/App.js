@@ -7,6 +7,7 @@ import { Login } from '../Login/Login';
 import { Profile } from '../Profile/Profile';
 import { Preloader } from '../Preloader/Preloader';
 import { Movies } from '../Movies/Movies';
+import { SavedMovies } from '../Movies/SavedMovies/SavedMovies';
 import './App.css';
 
 export const App = () => {
@@ -24,7 +25,7 @@ export const App = () => {
         />
         <Route
           path="/saved-movies"
-          element={<Preloader />}
+          element={<SavedMovies />}
         />
         <Route
           path="/signup"
