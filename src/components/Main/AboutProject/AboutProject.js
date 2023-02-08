@@ -1,8 +1,8 @@
 import './AboutProject.css';
 
 export const AboutProject = () => (
-  <section className="section about-project" id="about-project">
-    <h2 className="section__title">О проекте</h2>
+  <section className="main about-project" id="about-project">
+    <h2 className="main__title">О проекте</h2>
     <div className="about-project__columns">
       <div className="about-project__column">
         <h2 className="about-project__subtitle">Дипломный проект включал 5 этапов</h2>

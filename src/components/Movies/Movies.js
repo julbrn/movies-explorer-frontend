@@ -1,11 +1,16 @@
 import './Movies.css';
 import { SearchForm } from './SearchForm/SearchForm';
+import { Footer } from '../Footer/Footer';
 import { MoviesCardList } from './MoviesCardList/MoviesCardList';
 import Header from '../Header/Header';
 
 export const Movies = () => (
-  <main className="section">
+  <>
     <Header />
-    <SearchForm />
-  </main>
+    <main className="movies">
+      <SearchForm />
+      <MoviesCardList />
+    </main>
+    <Footer />
+  </>
 );

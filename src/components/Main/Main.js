@@ -9,7 +9,7 @@ import { Navigation } from '../Navigation/Navigation';
 import { Footer } from '../Footer/Footer';
 
 export const Main = () => (
-  <main className="main">
+  <>
     <Header>
       <Navigation />
     </Header>
@@ -20,5 +20,5 @@ export const Main = () => (
     <Techs />
     <AboutMe />
     <Footer />
-  </main>
+  </>
 );

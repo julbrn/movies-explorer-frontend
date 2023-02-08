@@ -3,8 +3,8 @@ import meme from '../../../images/cheems.jpg';
 import { Portfolio } from '../Portfolio/Portfolio.js'
 
 export const AboutMe = () => (
-  <article className="section about-me" id="about-me">
-    <h2 className="section__title">Студент</h2>
+  <article className="main about-me" id="about-me">
+    <h2 className="main__title">Студент</h2>
     <section className="about-me__columns">
       <div className="about-me__column">
         <div className="about-me__description">
