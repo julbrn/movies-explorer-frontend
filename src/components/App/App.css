@@ -73,6 +73,7 @@
     padding: 5px 0;
     width: 82px;
     border-radius: 6px;
+    font-size: 10px;
   }
 }
 
@@ -114,9 +115,10 @@
 }
 
 .link_type_signin {
+  box-sizing: border-box;
   background-color: var(--accent-color);
   border-radius: 3px;
-  padding: 8px;
+  padding: 8px 20px;
   width: 76px;
   color: #000;
   font-size: 12px;
@@ -128,6 +130,7 @@
 
 @media screen and (max-width: 610px) {
   .link_type_signin {
+    padding: 5px 12px;
     font-size: 10px;
     width: 54px;
   }
@@ -199,6 +202,7 @@
 
 @media screen and (max-width: 610px) {
   .main__title {
+    font-size: 18px;
     padding-bottom: 28px;
   }
 }
