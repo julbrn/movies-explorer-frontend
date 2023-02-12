@@ -22,6 +22,7 @@
     max-width: 400px;
     margin: 70px auto 80px;
     grid-template-columns: minmax(284px, 1fr);
+    gap: 36px 30px;
   }
 }
 

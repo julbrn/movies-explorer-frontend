@@ -9,7 +9,7 @@
 
 @media screen and (max-width: 880px) {
   .card {
-    min-height: 300px;
+    height: 258px;
   }
 }
 
@@ -35,7 +35,7 @@
 
 @media screen and (max-width: 900px) {
   .card__img {
-    height: 168px;
+    height: 190px;
   }
 }
 

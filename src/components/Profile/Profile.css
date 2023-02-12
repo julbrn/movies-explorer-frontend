@@ -41,7 +41,7 @@
 .profile__field {
   background-color: transparent;
   border: none;
-  outline: none;
+  outline-color: transparent;
   font-weight: 400;
   font-size: 11px;
   line-height: 1.21;

@@ -148,8 +148,13 @@
   font-size: 14px;
   line-height: 1.21;
   cursor: pointer;
-  outline: none;
+  outline-color: transparent;
   border: none;
+  transition: opacity .5s linear;
+}
+
+.button:hover {
+  opacity: .8;
 }
 
 @media screen and (max-width: 610px) {

@@ -34,7 +34,7 @@
   color: var(--font-color-light);
   background-color: transparent;
   border: none;
-  outline: none;
+  outline-color: transparent;
   box-sizing: border-box;
   text-overflow: ellipsis;
   white-space: nowrap;

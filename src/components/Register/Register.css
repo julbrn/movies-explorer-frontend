@@ -46,7 +46,7 @@
 .auth__fields {
   box-sizing: border-box;
   border: none;
-  outline: none;
+  outline-color: transparent;
   padding: 0;
   margin: 0;
 }
@@ -80,7 +80,7 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.21;
-  outline: none;
+  outline-color: transparent;
 }
 
 .auth__field:focus {
