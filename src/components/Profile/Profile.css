@@ -83,12 +83,14 @@
   line-height: 1.21;
   color: var(--font-color-light);
   text-align: right;
+  padding: 5px 0;
 }
 
 .profile__label {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0 0 16px 0;
 }
 

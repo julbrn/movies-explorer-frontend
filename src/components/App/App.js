@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { Main } from '../Main/Main';
 import { NotFound } from '../NotFound/NotFound';
 import { Register } from '../Register/Register';
@@ -13,33 +13,29 @@ import './App.css';
 export const App = () => {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Main />} />
-        <Route
-          path="/404"
-          element={<NotFound />}
-        />
-        <Route
-          path="/movies"
-          element={<Movies />}
-        />
-        <Route
-          path="/saved-movies"
-          element={<SavedMovies />}
-        />
-        <Route
-          path="/signup"
-          element={<Register />}
-        />
-        <Route
-          path="/signin"
-          element={<Login />}
-        />
-        <Route
-          path="/profile"
-          element={<Profile />}
-        />
-      </Routes>
+      <Switch>
+        <Route exact path="/" >
+          <Main />
+        </Route>
+        <Route path="/404">
+          <NotFound />
+        </Route>
+        <Route path="/movies">
+          <Movies />
+        </Route>
+        <Route path="/saved-movies">
+          <SavedMovies />
+        </Route>
+        <Route path="/signup">
+          <Register />
+        </Route>
+        <Route path="/signin">
+          <Login />
+        </Route>
+        <Route path="/profile">
+          <Profile />
+        </Route>
+      </Switch>
     </>
   );
 };

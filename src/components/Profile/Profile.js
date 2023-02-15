@@ -13,12 +13,12 @@ export const Profile = () => {
             <label className="profile__label">
               <span className="profile__field-name">Имя</span>
               <input className="profile__field" type="text" defaultValue="Некто" name="name"
-                id="name" required />
+                id="name" required placeholder="Имя" />
             </label>
             <label className="profile__label">
               <span className="profile__field-name">E-mail</span>
-              <input className="profile__field profile__field_type_error" defaultValue="cheems@yandex.ru" type="text" name="email"
-                id="email" required />
+              <input className="profile__field profile__field_type_error" defaultValue="nekto@yandex.ru" type="text" name="email"
+                id="email" required placeholder="e-mail" />
             </label>
           </fieldset>
           <div className="profile__buttons">

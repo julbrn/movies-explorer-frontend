@@ -24,6 +24,7 @@ export const Register = () => (
               id="name"
               className="auth__field"
               minLength={3}
+              placeholder="Имя"
               required
             />
             <span
@@ -44,6 +45,7 @@ export const Register = () => (
               name="email"
               id="email"
               className="auth__field"
+              placeholder="e-mail"
               required
             />
             <span
@@ -61,6 +63,7 @@ export const Register = () => (
               name="password"
               id="password"
               className="auth__field"
+              placeholder="Пароль"
               required
             />
             <span

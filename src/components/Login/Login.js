@@ -23,6 +23,7 @@ export const Login = () => (
               name="email"
               id="email"
               className="auth__field"
+              placeholder="e-mail"
               required
             />
             <span
@@ -40,6 +41,7 @@ export const Login = () => (
               name="password"
               id="password"
               className="auth__field"
+              placeholder="Пароль"
               required
             />
             <span

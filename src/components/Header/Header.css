@@ -8,6 +8,18 @@
   width: 100%;
 }
 
+.header__links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+@media screen and (max-width: 610px) {
+  .header__links {
+    gap: 14px;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .header {
     padding: 18px 30px;

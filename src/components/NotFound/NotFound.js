@@ -1,10 +1,10 @@
 import {
-  Link, useNavigate,
+  Link, useLocation,
 } from 'react-router-dom';
 import './NotFound.css';
 
 export const NotFound = () => {
-  const navigate = useNavigate();
+  const navigate = useLocation();
   const goBack = () => {
     navigate(-1);
   };
