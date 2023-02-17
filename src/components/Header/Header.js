@@ -1,30 +1,37 @@
 import React from 'react';
-import { Link, Route, Switch } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import './Header.css';
 import logo from '../../images/logo.svg';
-import { Navigation } from '../Navigation/Navigation';
 
-export const Header = () => {
+export const Header = ({ children }) => {
+  const location = useLocation();
+  const isLocationAuthorized = location.pathname.includes('movies' || 'profile');
+  const [isClickedBurger, setIsClickedBurger] = useState(false);
+  function onBurgerClick() {
+    setIsClickedBurger(!isClickedBurger)
+  }
   return (
     <header className="header">
       <Link to="/" aria-label="На главную">
         <img className="logo" src={logo} alt="Лого BeatFilm" />
       </Link>
-      <Switch>
-        <Route exact path="/">
-          <ul className='header__links'>
-            <Link
-              to="/signup"
-              className='link link_type_signup'>Регистрация</Link>
-            <Link
-              to="/signin"
-              className='link link_type_signin'>Войти</Link>
-          </ul>
-        </Route>
-        <Route path={["/profile", "/movies", "/saved-movies"]}>
-          <Navigation />
-        </Route>
-      </Switch>
+      {isLocationAuthorized && (
+        <button
+          className="burger"
+          type="button"
+          aria-label="Открыть меню"
+          onClick={onBurgerClick}
+        >
+          <span className={`${isClickedBurger ? 'burger__bar' +
+            ' burger__bar_cross' : 'burger__bar'}`}></span>
+          <span className={`${isClickedBurger ? 'burger__bar' +
+            ' burger__bar_cross' : 'burger__bar'}`}></span>
+          <span className={`${isClickedBurger ? 'burger__bar' +
+            ' burger__bar_cross' : 'burger__bar'}`}></span>
+        </button>
+      )}
+      {children}
     </header>
   )
 };

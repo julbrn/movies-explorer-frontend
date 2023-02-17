@@ -47,6 +47,7 @@
 }
 
 .search-form__label {
+  box-sizing: border-box;
   color: var(--semi-transparent);
   font-weight: 400;
   font-size: 14px;

@@ -1,13 +1,12 @@
-import {
-  Link, useLocation,
-} from 'react-router-dom';
+import { useHistory, Link } from "react-router-dom";
 import './NotFound.css';
 
 export const NotFound = () => {
-  const navigate = useLocation();
-  const goBack = () => {
-    navigate(-1);
-  };
+  const history = useHistory();
+
+  function handleClick() {
+    history.goBack();
+  }
 
   return (
     <main className="not-found">
@@ -15,7 +14,7 @@ export const NotFound = () => {
         <h1 className="not-found__title">404</h1>
         <p className="not-found__text">Страница не страница</p>
       </div>
-      <Link className="link link_color_blue" to={goBack}>
+      <Link className="link link_color_blue" to="#" onClick={handleClick}>
         Назад
       </Link>
     </main>
