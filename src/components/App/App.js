@@ -5,7 +5,6 @@ import { NotFound } from '../NotFound/NotFound';
 import { Register } from '../Register/Register';
 import { Login } from '../Login/Login';
 import { Profile } from '../Profile/Profile';
-import { Preloader } from '../Preloader/Preloader';
 import { Movies } from '../Movies/Movies';
 import { SavedMovies } from '../Movies/SavedMovies/SavedMovies';
 import './App.css';

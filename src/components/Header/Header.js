@@ -3,8 +3,9 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import './Header.css';
 import logo from '../../images/logo.svg';
+import { Navigation } from '../Navigation/Navigation';
 
-export const Header = ({ children }) => {
+export const Header = () => {
   const location = useLocation();
   const isLocationAuthorized = location.pathname.includes('movies' || 'profile');
   const [isClickedBurger, setIsClickedBurger] = useState(false);
@@ -31,7 +32,7 @@ export const Header = ({ children }) => {
             ' burger__bar_cross' : 'burger__bar'}`}></span>
         </button>
       )}
-      {children}
+      <Navigation />
     </header>
   )
 };

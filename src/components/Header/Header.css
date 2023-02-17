@@ -4,21 +4,8 @@
   margin: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
   position: relative;
-}
-
-.header__links {
-  display: flex;
-  gap: 30px;
-  align-items: center;
-}
-
-@media screen and (max-width: 610px) {
-  .header__links {
-    gap: 14px;
-  }
 }
 
 @media screen and (max-width: 900px) {
