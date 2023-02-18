@@ -7,7 +7,7 @@ export const Navigation = () => {
   const isBurger = false;
   return (
     <nav className="nav">
-      <ul className="nav__links">
+      <ul className="nav__links nav__links_type_movies">
         {isLocationAuthorized && (
           <>
             {isBurger && (
@@ -39,7 +39,7 @@ export const Navigation = () => {
         )}
 
       </ul>
-      <ul className="nav__links">
+      <ul className="nav__links nav__links_type_profile">
         {!isLocationAuthorized && (
           <>
             <li>
