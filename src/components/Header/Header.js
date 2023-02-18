@@ -5,13 +5,10 @@ import './Header.css';
 import logo from '../../images/logo.svg';
 import { Navigation } from '../Navigation/Navigation';
 
-export const Header = () => {
+export const Header = ({ onClickBurger, isBurgerMenuOpened }) => {
   const location = useLocation();
   const isLocationAuthorized = location.pathname.includes('movies' || 'profile');
   const [isClickedBurger, setIsClickedBurger] = useState(false);
-  function onBurgerClick() {
-    setIsClickedBurger(!isClickedBurger)
-  }
   return (
     <header className="header">
       <Link to="/" aria-label="На главную">
@@ -22,13 +19,13 @@ export const Header = () => {
           className="burger"
           type="button"
           aria-label="Открыть меню"
-          onClick={onBurgerClick}
+          onClick={onClickBurger}
         >
-          <span className={`${isClickedBurger ? 'burger__bar' +
+          <span className={`${isBurgerMenuOpened ? 'burger__bar' +
             ' burger__bar_cross' : 'burger__bar'}`}></span>
-          <span className={`${isClickedBurger ? 'burger__bar' +
+          <span className={`${isBurgerMenuOpened ? 'burger__bar' +
             ' burger__bar_cross' : 'burger__bar'}`}></span>
-          <span className={`${isClickedBurger ? 'burger__bar' +
+          <span className={`${isBurgerMenuOpened ? 'burger__bar' +
             ' burger__bar_cross' : 'burger__bar'}`}></span>
         </button>
       )}

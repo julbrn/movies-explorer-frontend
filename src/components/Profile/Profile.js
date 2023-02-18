@@ -1,11 +1,9 @@
 import React from 'react';
 import './Profile.css';
-import Header from '../Header/Header';
 
 export const Profile = () => {
   return (
     <>
-      <Header />
       <section className="profile">
         <form action="/" name="edit" className="profile__form">
           <fieldset className="profile__fields">
