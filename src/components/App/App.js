@@ -7,14 +7,17 @@ import { Login } from '../Login/Login';
 import { Profile } from '../Profile/Profile';
 import { Movies } from '../Movies/Movies';
 import { Header } from '../Header/Header';
-import { Navigation } from '../Navigation/Navigation';
 import { SavedMovies } from '../Movies/SavedMovies/SavedMovies';
 import './App.css';
 
 export const App = () => {
   const [isBurgerMenuOpened, setIsBurgerMenuOpened] = useState(false);
+  function handleBurgerLinkClick() {
+    setIsBurgerMenuOpened(false);
+  }
   function onBurgerClick() {
-    setIsBurgerMenuOpened(!isBurgerMenuOpened)
+    setIsBurgerMenuOpened(!isBurgerMenuOpened);
+    document.querySelector(".nav_type_sidebar").classList.toggle("nav_type_sidebar-active");
   }
   return (
     <>
@@ -27,11 +30,11 @@ export const App = () => {
           <NotFound />
         </Route>
         <Route path="/movies">
-          <Header onClickBurger={onBurgerClick} isBurgerMenuOpened={isBurgerMenuOpened} />
+          <Header onClickBurger={onBurgerClick} isBurgerMenuOpened={isBurgerMenuOpened} handleBurgerLinkClick={handleBurgerLinkClick} />
           <Movies />
         </Route>
         <Route path="/saved-movies">
-          <Header onClickBurger={onBurgerClick} isBurgerMenuOpened={isBurgerMenuOpened} />
+          <Header onClickBurger={onBurgerClick} isBurgerMenuOpened={isBurgerMenuOpened} handleBurgerLinkClick={handleBurgerLinkClick} />
           <SavedMovies />
         </Route>
         <Route path="/signup">
@@ -41,7 +44,7 @@ export const App = () => {
           <Login />
         </Route>
         <Route path="/profile">
-          <Header onClickBurger={onBurgerClick} isBurgerMenuOpened={isBurgerMenuOpened} />
+          <Header onClickBurger={onBurgerClick} isBurgerMenuOpened={isBurgerMenuOpened} handleBurgerLinkClick={handleBurgerLinkClick} />
           <Profile />
         </Route>
       </Switch>

@@ -1,22 +1,23 @@
 import './Navigation.css';
 import { NavLink, useLocation, Link } from 'react-router-dom';
 
-export const Navigation = () => {
+export const Navigation = ({ isBurgerMenuOpened, handleLinkClick }) => {
   const location = useLocation();
   const isLocationAuthorized = location.pathname.includes('profile') || location.pathname.includes('movies');
-  const isBurger = false;
+
   return (
-    <nav className="nav">
+    <nav className={`nav ${isLocationAuthorized ? "nav_type_sidebar" : ""} `}>
       <ul className="nav__links nav__links_type_movies">
         {isLocationAuthorized && (
           <>
-            {isBurger && (
+            {isBurgerMenuOpened && (
               <>
                 <li>
                   <NavLink
                     className="nav__link"
+                    onClick={handleLinkClick}
                     activeClassName="nav__link_active"
-                    to="/">Главная
+                    exact to="/">Главная
                   </NavLink>
                 </li>
               </>
@@ -24,6 +25,7 @@ export const Navigation = () => {
             <li className="nav__movie-item">
               <NavLink
                 className="nav__link"
+                onClick={handleLinkClick}
                 activeClassName="nav__link_active"
                 to="/movies">Фильмы
               </NavLink>
@@ -31,6 +33,7 @@ export const Navigation = () => {
             <li className="nav__movie-item">
               <NavLink
                 className="nav__link"
+                onClick={handleLinkClick}
                 activeClassName="nav__link_active"
                 to="/saved-movies">Сохранённые фильмы
               </NavLink>

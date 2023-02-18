@@ -1,14 +1,17 @@
 import React from 'react';
-import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import './Header.css';
 import logo from '../../images/logo.svg';
 import { Navigation } from '../Navigation/Navigation';
 
-export const Header = ({ onClickBurger, isBurgerMenuOpened }) => {
+export const Header = ({ onClickBurger, isBurgerMenuOpened, handleBurgerLinkClick }) => {
   const location = useLocation();
-  const isLocationAuthorized = location.pathname.includes('movies' || 'profile');
-  const [isClickedBurger, setIsClickedBurger] = useState(false);
+  const isLocationAuthorized = location.pathname.includes('profile') || location.pathname.includes('movies');
+  const handleLinkClick = () => {
+    document.querySelector(".nav_type_sidebar").classList.remove("nav_type_sidebar-active");
+    handleBurgerLinkClick();
+    console.dir(handleBurgerLinkClick)
+  }
   return (
     <header className="header">
       <Link to="/" aria-label="На главную">
@@ -29,7 +32,7 @@ export const Header = ({ onClickBurger, isBurgerMenuOpened }) => {
             ' burger__bar_cross' : 'burger__bar'}`}></span>
         </button>
       )}
-      <Navigation />
+      <Navigation isBurgerMenuOpened={isBurgerMenuOpened} handleLinkClick={handleLinkClick} />
     </header>
   )
 };

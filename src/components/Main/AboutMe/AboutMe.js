@@ -11,7 +11,7 @@ export const AboutMe = () => (
           <h2 className="about-me__title">Чимс</h2>
           <h3 className="about-me__subtitle">Начинающий фронтенд-разработчик, 28 лет</h3>
           <p className="about-me__text">
-            Не задавайте мне вопросы, я только могу писать цветные буковки на тёмном фоне. Кстати, как выйти из Vim?  Bonk!
+            Aute anim dolore enim laboris ullamco do ea elit amet amet duis exercitation consectetur. Pariatur mollit ullamco nulla duis velit adipisicing deserunt ipsum voluptate et sunt deserunt. Consequat exercitation Lorem aliquip proident dolore laboris cupidatat eu et nostrud officia tempor mollit labore. Adipisicing officia in nulla sint tempor quis magna cupidatat enim enim aliqua. Sint fugiat do esse magna velit eiusmod id sit esse eiusmod do.
           </p>
         </div>
         <a className="link about-me__link" href="https://github.com/julbrn" target="_blank" rel="noreferrer">
