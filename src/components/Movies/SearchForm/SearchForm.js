@@ -3,9 +3,9 @@ import { FilterCheckbox } from '../FilterCheckbox/FilterCheckbox';
 
 export const SearchForm = () => (
   <form action="/" name="search" className="search">
-    <label className="search-form__label" htmlFor="film">
+    <label className="search__label" htmlFor="film">
       <input
-        className="search-form__input"
+        className="search__input"
         type="text"
         placeholder="Фильм"
         id="film"

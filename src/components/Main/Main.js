@@ -8,12 +8,14 @@ import { Footer } from '../Footer/Footer';
 
 export const Main = () => (
   <>
-    <Promo>
-      <NavTab />
-    </Promo>
-    <AboutProject />
-    <Techs />
-    <AboutMe />
+    <main>
+      <Promo>
+        <NavTab />
+      </Promo>
+      <AboutProject />
+      <Techs />
+      <AboutMe />
+    </main>
     <Footer />
   </>
 );

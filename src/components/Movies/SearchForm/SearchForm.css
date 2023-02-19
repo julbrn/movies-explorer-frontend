@@ -26,11 +26,11 @@
   }
 }
 
-.search-form__input {
+.search__input {
   width: 80%;
   font-weight: 400;
   font-size: 14px;
-  line-height: 1.28;
+  line-height: 2;
   color: var(--font-color-light);
   background-color: transparent;
   border: none;
@@ -41,12 +41,12 @@
 }
 
 @media screen and (max-width: 610px) {
-  .search-form__input {
+  .search__input {
     font-size: 11px;
   }
 }
 
-.search-form__label {
+.search__label {
   box-sizing: border-box;
   color: var(--semi-transparent);
   font-weight: 400;

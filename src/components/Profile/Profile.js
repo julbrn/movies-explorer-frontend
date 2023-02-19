@@ -4,7 +4,7 @@ import './Profile.css';
 export const Profile = () => {
   return (
     <>
-      <section className="profile">
+      <main className="profile">
         <form action="/" name="edit" className="profile__form">
           <fieldset className="profile__fields">
             <h2 className="profile__greeting">Привет, некто!</h2>
@@ -25,7 +25,7 @@ export const Profile = () => {
 
           </div>
         </form>
-      </section>
+      </main>
 
     </>
   )
