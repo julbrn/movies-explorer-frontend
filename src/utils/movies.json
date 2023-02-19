@@ -1,86 +1,88 @@
-{"movies": [
-  {
-    "_id": 1,
-    "saved": false,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://4.downloader.disk.yandex.ru/preview/4d199c084649187471eda929f5e8a0c0f1304f56e65bd61747ec842f5470f7f7/inf/mYB9JC-nxa5-lmXBvX-SSsiuZf0KO7eny4VfsGTE7WvUFbEXOglAlnbAyEQBzNB5Zrg7OMTb3WVGtDEEI3152Q%3D%3D?uid=173919765&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  },
-  {
-    "_id": 2,
-    "saved": false,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://1.downloader.disk.yandex.ru/preview/9f7442a2b7c494ad684ac90fedc55f7d9366664c90be3bf1b218cf1408cb7411/inf/VWMRg1s9AlKoK2XErIoR08iuZf0KO7eny4VfsGTE7WvGK-ZY9SeT-2tGdb3qOcp10VwL6cAjHpyHA0Ey7l9-5A%3D%3D?uid=173919765&filename=2.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  },
-  {
-    "_id": 3,
-    "saved": true,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://4.downloader.disk.yandex.ru/preview/9b0ad0d2fd5a871793512add0d740e962fc4c49502f8224eb3e921ac8958f749/inf/cysShfSG-ggiFPHUwJvE-MiuZf0KO7eny4VfsGTE7Wt44NjEk9_5s6bAjnLjCyUyOxukNgEsrXsStMroCJEu8g%3D%3D?uid=173919765&filename=3.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  },
-  {
-    "_id": 4,
-    "saved": false,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://4.downloader.disk.yandex.ru/preview/4d199c084649187471eda929f5e8a0c0f1304f56e65bd61747ec842f5470f7f7/inf/mYB9JC-nxa5-lmXBvX-SSsiuZf0KO7eny4VfsGTE7WvUFbEXOglAlnbAyEQBzNB5Zrg7OMTb3WVGtDEEI3152Q%3D%3D?uid=173919765&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  },
-  {
-    "_id": 5,
-    "saved": true,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://1.downloader.disk.yandex.ru/preview/753a5f8c29965a7c7b59e2c79ab30f588c80517353a4f509f78ead9b506b7ee2/inf/KHhwbLKs3_fSQ1swaW5qGciuZf0KO7eny4VfsGTE7WvQpi8qO00kZcQLvq0lHRpi4Cule7OWf5hOqQD01RO6IQ%3D%3D?uid=173919765&filename=4.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  },
-  {
-    "_id": 6,
-    "saved": false,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://1.downloader.disk.yandex.ru/preview/9f7442a2b7c494ad684ac90fedc55f7d9366664c90be3bf1b218cf1408cb7411/inf/VWMRg1s9AlKoK2XErIoR08iuZf0KO7eny4VfsGTE7WvGK-ZY9SeT-2tGdb3qOcp10VwL6cAjHpyHA0Ey7l9-5A%3D%3D?uid=173919765&filename=2.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  },
-  {
-    "_id": 7,
-    "saved": false,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://1.downloader.disk.yandex.ru/preview/9f7442a2b7c494ad684ac90fedc55f7d9366664c90be3bf1b218cf1408cb7411/inf/VWMRg1s9AlKoK2XErIoR08iuZf0KO7eny4VfsGTE7WvGK-ZY9SeT-2tGdb3qOcp10VwL6cAjHpyHA0Ey7l9-5A%3D%3D?uid=173919765&filename=2.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  },
-  {
-    "_id": 8,
-    "saved": false,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://4.downloader.disk.yandex.ru/preview/4d199c084649187471eda929f5e8a0c0f1304f56e65bd61747ec842f5470f7f7/inf/mYB9JC-nxa5-lmXBvX-SSsiuZf0KO7eny4VfsGTE7WvUFbEXOglAlnbAyEQBzNB5Zrg7OMTb3WVGtDEEI3152Q%3D%3D?uid=173919765&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  },
-  {
-    "_id": 9,
-    "saved": false,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://1.downloader.disk.yandex.ru/preview/753a5f8c29965a7c7b59e2c79ab30f588c80517353a4f509f78ead9b506b7ee2/inf/KHhwbLKs3_fSQ1swaW5qGciuZf0KO7eny4VfsGTE7WvQpi8qO00kZcQLvq0lHRpi4Cule7OWf5hOqQD01RO6IQ%3D%3D?uid=173919765&filename=4.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  },
-  {
-    "_id": 10,
-    "saved": true,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://4.downloader.disk.yandex.ru/preview/4d199c084649187471eda929f5e8a0c0f1304f56e65bd61747ec842f5470f7f7/inf/mYB9JC-nxa5-lmXBvX-SSsiuZf0KO7eny4VfsGTE7WvUFbEXOglAlnbAyEQBzNB5Zrg7OMTb3WVGtDEEI3152Q%3D%3D?uid=173919765&filename=1.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  },
-  {
-    "_id": 11,
-    "saved": false,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://1.downloader.disk.yandex.ru/preview/9f7442a2b7c494ad684ac90fedc55f7d9366664c90be3bf1b218cf1408cb7411/inf/VWMRg1s9AlKoK2XErIoR08iuZf0KO7eny4VfsGTE7WvGK-ZY9SeT-2tGdb3qOcp10VwL6cAjHpyHA0Ey7l9-5A%3D%3D?uid=173919765&filename=2.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  },
-  {
-    "_id": 12,
-    "saved": false,
-    "title": "33 слова о дизайне",
-    "duration": "1ч 47м",
-    "img": "https://4.downloader.disk.yandex.ru/preview/9b0ad0d2fd5a871793512add0d740e962fc4c49502f8224eb3e921ac8958f749/inf/cysShfSG-ggiFPHUwJvE-MiuZf0KO7eny4VfsGTE7Wt44NjEk9_5s6bAjnLjCyUyOxukNgEsrXsStMroCJEu8g%3D%3D?uid=173919765&filename=3.jpg&disposition=inline&hash=&limit=0&content_type=image%2Fjpeg&owner_uid=173919765&tknv=v2&size=1903x928"
-  }
-]}
+{
+  "movies": [
+    {
+      "_id": 1,
+      "saved": false,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/1.jpg"
+    },
+    {
+      "_id": 2,
+      "saved": false,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/2.jpg"
+    },
+    {
+      "_id": 3,
+      "saved": true,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/3.jpg"
+    },
+    {
+      "_id": 4,
+      "saved": false,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/4.jpg"
+    },
+    {
+      "_id": 5,
+      "saved": true,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/1.jpg"
+    },
+    {
+      "_id": 6,
+      "saved": false,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/2.jpg"
+    },
+    {
+      "_id": 7,
+      "saved": false,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/3.jpg"
+    },
+    {
+      "_id": 8,
+      "saved": false,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/4.jpg"
+    },
+    {
+      "_id": 9,
+      "saved": false,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/1.jpg"
+    },
+    {
+      "_id": 10,
+      "saved": true,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/2.jpg"
+    },
+    {
+      "_id": 11,
+      "saved": false,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/3.jpg"
+    },
+    {
+      "_id": 12,
+      "saved": false,
+      "title": "33 слова о дизайне",
+      "duration": "1ч 47м",
+      "img": "../movies_img/4.jpg"
+    }
+  ]
+}
