@@ -1,0 +1,5 @@
+.grey-button {
+  border-radius: 10px;
+  background-color: var(--grey-color);
+  text-align: center;
+}

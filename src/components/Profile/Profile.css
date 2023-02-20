@@ -1,0 +1,139 @@
+.profile {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-top: 74px;
+}
+
+@media screen and (max-width: 900px) {
+  .profile{
+    height: calc(100vh - 74px);
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .profile {
+    height: calc(100vh - 70px);
+    margin: 0;
+  }
+}
+
+.profile__form {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 410px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 900px) {
+  .profile__form {
+    height: 445px;
+    margin-top: 236px;
+  }
+}
+
+
+@media screen and (max-width: 610px) {
+  .profile__form {
+    margin-top: 70px;
+    width: 260px;
+    height: 100%;
+  }
+}
+
+.profile__greeting {
+  padding: 0;
+  margin: 0 0 123px 0;
+  text-align: center;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.21;
+}
+
+@media screen and (max-width: 900px) {
+  .profile__greeting {
+    margin-bottom: 96px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .profile__greeting {
+    margin-bottom: 80px;
+  }
+}
+
+.profile__fields {
+  box-sizing: border-box;
+  width: 100%;
+  border: none;
+}
+
+.profile__field {
+  background-color: transparent;
+  border: none;
+  outline-color: transparent;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.21;
+  color: var(--font-color-light);
+  text-align: right;
+  padding: 5px 0;
+}
+
+.profile__label {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0 16px 0;
+}
+
+.profile__label:not(:last-of-type) {
+  border-bottom: 1px solid var(--semi-transparent);
+}
+
+.profile__label:not(:first-of-type) {
+  margin-top: 17px;
+}
+
+.profile__label:focus {
+  border-bottom: 1px solid var(--button-color);
+}
+
+.profile__input {
+  background-color: transparent;
+  width: 100%;
+}
+
+.profile__field-name {
+  margin: 0;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 1.21;
+}
+
+.profile__buttons {
+  display: flex;
+  flex-direction: column;
+  margin-top: 202px;
+}
+
+
+@media screen and (max-width: 900px) {
+  .profile__buttons {
+    margin-top: 190px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .profile__buttons {
+    margin-top: 0;
+    margin-bottom: 40px;
+  }
+}

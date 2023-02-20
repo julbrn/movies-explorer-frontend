@@ -1,0 +1,12 @@
+.navtab {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+@media screen and (max-width: 610px) {
+  .navtab {
+    gap: 6px;
+    margin-bottom: 22px;
+  }
+}

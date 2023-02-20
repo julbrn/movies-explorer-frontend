@@ -1,0 +1,151 @@
+.about-project {
+  padding: 110px 0;
+  width: 100%;
+}
+
+@media screen and (max-width: 900px) {
+  .about-project {
+    padding: 90px 0;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .about-project {
+    padding: 70px 0;
+  }
+}
+
+@media screen and (max-width: 952px) {
+  .about-project__column {
+    max-width: 370px;
+  }
+}
+
+.about-project__columns {
+  margin-top: 70px;
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+@media screen and (max-width: 610px) {
+  .about-project__columns {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin-top: 60px;
+    gap: 56px;
+  }
+}
+
+.about-project__subtitle {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.21;
+  letter-spacing: -4%;
+}
+
+@media screen and (max-width: 610px) {
+  .about-project__subtitle {
+    font-size: 18px;
+  }
+}
+
+.about-project__text {
+  padding: 26px 0 0 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.43;
+}
+
+@media screen and (max-width: 900px) {
+  .about-project__text {
+    font-size: 12px;
+    padding-top: 22px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .about-project__text {
+    font-size: 11px;
+    line-height: 1.45;
+    padding-top: 16px;
+  }
+}
+
+.progress {
+  width: 100%;
+  margin-top: 110px;
+  display: grid;
+  grid-template-columns: 20% auto;
+  row-gap: 5px;
+}
+
+@media screen and (max-width: 900px) {
+  .progress {
+    margin-top: 93px;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .progress {
+    margin-top: 60px;
+  }
+}
+
+@media screen and (max-width: 770px) {
+  .progress {
+    grid-template-columns: 20.96% auto;
+  }
+}
+
+@media screen and (max-width: 610px) {
+  .progress {
+    grid-template-columns: 35.2% auto;
+  }
+}
+
+.progress__column {
+  margin: 0;
+  padding: 9px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progress__column_color_green {
+  background-color: var(--accent-color);
+  color: #000;
+}
+.progress__text {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.21;
+}
+
+@media screen and (max-width: 610px) {
+  .progress__text {
+    font-size: 11px;
+  }
+}
+
+.progress__text-below {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.21;
+  color: var(--semi-transparent);
+}
+
+@media screen and (max-width: 610px) {
+  .progress__text-below {
+    font-size: 11px;
+  }
+}
+.progress__column_color_gray {
+  width: 100%;
+  background-color: var(--grey-color);
+}
