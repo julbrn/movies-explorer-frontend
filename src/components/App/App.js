@@ -8,10 +8,16 @@ import { Profile } from '../Profile/Profile';
 import { Movies } from '../Movies/Movies';
 import { Header } from '../Header/Header';
 import { SavedMovies } from '../Movies/SavedMovies/SavedMovies';
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './App.css';
 
 export const App = () => {
   const [isBurgerMenuOpened, setIsBurgerMenuOpened] = useState(false);
+  const [currentUser, setCurrentUser] = useState({
+    name: '',
+    about: '',
+  });
+  const [isLoading, setIsLoading] = useState(false);
   function handleBurgerLinkClick() {
     setIsBurgerMenuOpened(false);
   }
@@ -20,7 +26,7 @@ export const App = () => {
     document.querySelector(".nav_type_sidebar").classList.toggle("nav_type_sidebar-active");
   }
   return (
-    <>
+    <CurrentUserContext.Provider value={currentUser}>
       <Switch>
         <Route exact path="/" >
           <Header isBurgerMenuOpened={isBurgerMenuOpened} />
@@ -48,7 +54,7 @@ export const App = () => {
           <Profile />
         </Route>
       </Switch>
-    </>
+    </CurrentUserContext.Provider>
   );
 };
 
