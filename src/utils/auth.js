@@ -1,20 +1,20 @@
-import { BASE_URL } from "./constants";
+import { MAIN_BASE_URL } from "./constants";
 import { checkServerResponse } from './checkServerResponse.js';
 
-export const register = (email, password) => {
-  return fetch(`${BASE_URL}/signup`, {
+export const signUp = (email, password, name) => {
+  return fetch(`${MAIN_BASE_URL}/signup`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({ email, password })
+    body: JSON.stringify({ email, password, name })
   })
-    .then((res) => checkServerResponse(res))
+    .then((res) => console.log(res))
 
 };
 
 export const signIn = (email, password) => {
-  return fetch(`${BASE_URL}/signin`, {
+  return fetch(`${MAIN_BASE_URL}/signin`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -25,13 +25,14 @@ export const signIn = (email, password) => {
 };
 
 export function getProfile(token) {
-  return fetch(`${BASE_URL}/users/me`, {
+  return fetch(`${MAIN_BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json',
+      'Accept': 'application/json',
       'Authorization': `Bearer ${token}`,
-    }
+      'Content-Type': 'application/json',
+    },
+    credentials: 'include',
   })
-    .then(res => res.json())
-    .then(data => data)
+    .then((res) => checkServerResponse(res))
 }

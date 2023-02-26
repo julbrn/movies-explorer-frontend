@@ -1,5 +1,5 @@
 import { checkServerResponse } from './checkServerResponse.js';
-import { MAIN_BASE_URL } from '../utils/constants';
+import { MAIN_BASE_URL } from './constants';
 
 class MainApi {
   constructor({ serverUrl, headers }) {
@@ -7,51 +7,74 @@ class MainApi {
     this._serverUrl = serverUrl;
   }
 
+  _getHeaders() {
+    const jwt = localStorage.getItem("jwt");
+    return {
+      "Authorization": `Bearer ${jwt}`,
+      ...this._headers
+    }
+  }
+
   editUserInfo(userName, userEmail) {
     return fetch(`${this._serverUrl}/users/me`, {
       method: 'PATCH',
-      headers: this._headers,
+      headers: this._getHeaders(),
+      credentials: 'include',
       body: JSON.stringify({
         name: userName,
         email: userEmail
       })
     })
 
-      .then(checkServerResponse(res))
+      .then(checkServerResponse)
   }
 
   getInitialMovies() {
     return fetch(`${this._serverUrl}/movies`, {
-      headers: this._headers,
+      method: 'GET',
+      headers: this._getHeaders(),
+      credentials: 'include',
     },
     )
-      .then(checkServerResponse(res))
+      .then(checkServerResponse)
   };
 
   addNewMovie(movie) {
     return fetch(`${this._serverUrl}/movies`, {
       method: 'POST',
-      headers: this._headers,
+      headers: this._getHeaders(),
+      credentials: 'include',
     })
-      .then(checkServerResponse(res))
-  }
+      .then(checkServerResponse)
+  };
 
   deleteMovie(id) {
     return fetch(`${this._serverUrl}/movies/${id}`, {
       method: 'DELETE',
-      headers: this._headers,
+      headers: this._getHeaders(),
+      credentials: 'include',
     })
 
-      .then(checkServerResponse(res))
+      .then(checkServerResponse)
+  };
+
+  getUserInfo() {
+    return fetch(`${this._serverUrl}/users/me`, {
+      method: 'GET',
+      headers: this._getHeaders(),
+      credentials: 'include',
+    })
+      .then(checkServerResponse)
   }
 }
 
-export const mainApi = new MainApi({
-  serverURL: 'http://localhost:3000',
-  //serverURL: MAIN_BASE_URL,
 
+const mainApi = new MainApi({
+  serverUrl: MAIN_BASE_URL,
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
   }
 });
+
+export default mainApi;

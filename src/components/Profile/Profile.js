@@ -1,7 +1,7 @@
 import React from 'react';
 import './Profile.css';
 
-export const Profile = () => {
+export const Profile = ({ onSignOut }) => {
   return (
     <>
       <main className="profile">
@@ -20,8 +20,8 @@ export const Profile = () => {
             </label>
           </fieldset>
           <div className="profile__buttons">
-            <button className="link link_type_edit">Редактировать</button>
-            <button className="link link_type_logout">Выйти из аккаунта</button>
+            <button type="button" className="link link_type_edit">Редактировать</button>
+            <button type="button" className="link link_type_logout" onClick={onSignOut}>Выйти из аккаунта</button>
 
           </div>
         </form>

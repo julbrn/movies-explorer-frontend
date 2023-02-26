@@ -1,23 +1,20 @@
 import React from 'react';
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import './Header.css';
 import logo from '../../images/logo.svg';
 import { Navigation } from '../Navigation/Navigation';
 
-export const Header = ({ onClickBurger, isBurgerMenuOpened, handleBurgerLinkClick }) => {
-  const location = useLocation();
-  const isLocationAuthorized = location.pathname.includes('profile') || location.pathname.includes('movies');
+export const Header = ({ onClickBurger, isBurgerMenuOpened, handleBurgerLinkClick, isLoggedIn }) => {
   const handleLinkClick = () => {
     document.querySelector(".nav_type_sidebar").classList.remove("nav_type_sidebar-active");
     handleBurgerLinkClick();
-    console.dir(handleBurgerLinkClick)
   }
   return (
     <header className="header">
       <Link to="/" aria-label="На главную">
         <img className="logo" src={logo} alt="Лого BeatFilm" />
       </Link>
-      {isLocationAuthorized && (
+      {isLoggedIn && (
         <button
           className="burger"
           type="button"
@@ -32,7 +29,7 @@ export const Header = ({ onClickBurger, isBurgerMenuOpened, handleBurgerLinkClic
             ' burger__bar_cross' : 'burger__bar'}`}></span>
         </button>
       )}
-      <Navigation isBurgerMenuOpened={isBurgerMenuOpened} handleLinkClick={handleLinkClick} />
+      <Navigation isBurgerMenuOpened={isBurgerMenuOpened} handleLinkClick={handleLinkClick} isLoggedIn={isLoggedIn} />
     </header>
   )
 };
