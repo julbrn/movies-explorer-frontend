@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Switch, Route, useHistory } from 'react-router-dom';
+import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
 import { Main } from '../Main/Main';
+import ProtectedRoute from "../ProtectedRoute";
 import { NotFound } from '../NotFound/NotFound';
 import { Register } from '../Register/Register';
 import { Login } from '../Login/Login';
@@ -20,6 +21,9 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("");
+
+  const location = useLocation();
+  const headerIsNull = location.pathname.includes('sign') || location.pathname.includes('404');
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -104,31 +108,37 @@ export const App = () => {
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
+      {!headerIsNull && (
+        <Header onClickBurger={onBurgerClick} isBurgerMenuOpened={isBurgerMenuOpened} isLoggedIn={isLoggedIn} handleBurgerLinkClick={handleBurgerLinkClick} />
+      )}
       <Switch>
         <Route exact path="/" >
-          <Header onClickBurger={onBurgerClick} isBurgerMenuOpened={isBurgerMenuOpened} isLoggedIn={isLoggedIn} handleBurgerLinkClick={handleBurgerLinkClick} />
           <Main />
         </Route>
         <Route path="/404">
           <NotFound />
         </Route>
-        <Route path="/movies">
-          <Header onClickBurger={onBurgerClick} isBurgerMenuOpened={isBurgerMenuOpened} isLoggedIn={isLoggedIn} handleBurgerLinkClick={handleBurgerLinkClick} />
-          <Movies />
-        </Route>
-        <Route path="/saved-movies">
-          <Header onClickBurger={onBurgerClick} isBurgerMenuOpened={isBurgerMenuOpened} isLoggedIn={isLoggedIn} handleBurgerLinkClick={handleBurgerLinkClick} />
-          <SavedMovies />
-        </Route>
+        <ProtectedRoute
+          path="/movies"
+          component={Movies}
+          isLoggedIn={isLoggedIn}
+        />
+        <ProtectedRoute
+          path="/saved-movies"
+          component={SavedMovies}
+          isLoggedIn={isLoggedIn}
+        />
+        <ProtectedRoute
+          path="/profile"
+          component={Profile}
+          onSignOut={handleSignOut}
+          isLoggedIn={isLoggedIn}
+        />
         <Route path="/signup">
           <Register onRegister={handleRegister} isLoading={isLoading} />
         </Route>
         <Route path="/signin">
           <Login handleLogin={handleLogin} isLoading={isLoading} />
-        </Route>
-        <Route path="/profile">
-          <Header onClickBurger={onBurgerClick} isBurgerMenuOpened={isBurgerMenuOpened} isLoggedIn={isLoggedIn} handleBurgerLinkClick={handleBurgerLinkClick} />
-          <Profile onSignOut={handleSignOut} />
         </Route>
       </Switch>
     </CurrentUserContext.Provider>
