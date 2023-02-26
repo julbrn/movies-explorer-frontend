@@ -2,23 +2,15 @@ import './Login.css';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import { useState } from 'react';
+import { useFormWithValidation } from "../../hooks/useFormValidation";
 
-export function Login({ handleLogin, isLoading }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
+export function Login({ onLogin, isLoading }) {
+  const { values, handleChange, errors, isValid, resetForm, setValues } = useFormWithValidation();
 
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
+
   function handleSubmit(e) {
     e.preventDefault();
-    handleLogin({
-      email,
-      password,
-    });
+    onLogin(values);
   }
 
   return (
@@ -45,7 +37,7 @@ export function Login({ handleLogin, isLoading }) {
                 className="auth__field"
                 placeholder="e-mail"
                 required
-                onChange={handleEmailChange}
+                onChange={handleChange}
               />
               <span
                 className="auth__field-error">Что-то пошло не так...</span>
@@ -64,7 +56,7 @@ export function Login({ handleLogin, isLoading }) {
                 className="auth__field"
                 placeholder="Пароль"
                 required
-                onChange={handlePasswordChange}
+                onChange={handleChange}
               />
               <span
                 className="auth__field-error"

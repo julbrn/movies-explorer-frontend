@@ -2,32 +2,14 @@ import React from 'react';
 import './Register.css';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
-import { useState } from 'react';
+import { useFormWithValidation } from "../../hooks/useFormValidation";
 
 export function Register({ onRegister, isLoading }) {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-
-  function handleEmailChange(e) {
-    setEmail(e.target.value);
-  }
-
-  function handlePasswordChange(e) {
-    setPassword(e.target.value);
-  }
-
-  function handleNameChange(e) {
-    setName(e.target.value);
-  }
+  const { values, handleChange, errors, isValid, resetForm, setValues } = useFormWithValidation();
 
   function handleSubmit(e) {
     e.preventDefault();
-    onRegister({
-      name,
-      email,
-      password,
-    });
+    onRegister(values);
   }
 
   return (
@@ -54,7 +36,8 @@ export function Register({ onRegister, isLoading }) {
                 minLength={3}
                 placeholder="Имя"
                 required
-                onChange={handleNameChange}
+                value={values.name || ''}
+                onChange={handleChange}
               />
               <span
                 className="auth__field-error"
@@ -75,8 +58,9 @@ export function Register({ onRegister, isLoading }) {
                 id="email"
                 className="auth__field"
                 placeholder="e-mail"
+                value={values.email || ''}
                 required
-                onChange={handleEmailChange}
+                onChange={handleChange}
               />
               <span
                 className="auth__field-error">Что-то пошло не так...</span>
@@ -95,7 +79,8 @@ export function Register({ onRegister, isLoading }) {
                 className="auth__field"
                 placeholder="Пароль"
                 required
-                onChange={handlePasswordChange}
+                value={values.password || ''}
+                onChange={handleChange}
               />
               <span
                 className="auth__field-error"

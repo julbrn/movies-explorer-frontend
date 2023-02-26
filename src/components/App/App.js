@@ -26,6 +26,24 @@ export const App = () => {
   const headerIsNull = location.pathname.includes('sign') || location.pathname.includes('404');
 
   useEffect(() => {
+    tokenCheck();
+  }, []);
+
+  const tokenCheck = () => {
+    const token = localStorage.getItem("jwt");
+    if (token) {
+      auth.getProfile(token)
+        .then((res) => {
+          if (res) {
+            setUserEmail(res.user.email);
+            setIsLoggedIn(true);
+          }
+        })
+        .catch(err => console.log(err));
+    }
+  }
+
+  useEffect(() => {
     if (isLoggedIn) {
       Promise.all([mainApi.getUserInfo(), mainApi.getInitialMovies()])
         .then(([userData, moviesData]) => {
@@ -65,9 +83,9 @@ export const App = () => {
     auth
       .signIn(user.email, user.password)
       .then((data) => {
-        setIsLoggedIn(true);
         localStorage.setItem("jwt", data.token);
         setUserEmail(user.email);
+        setIsLoggedIn(true);
         history.push("/movies");
       })
       .catch((err) => {
@@ -78,25 +96,6 @@ export const App = () => {
       })
   }
 
-  const tokenCheck = () => {
-    const token = localStorage.getItem("jwt");
-    if (token) {
-      auth.getProfile(token)
-        .then((res) => {
-          if (res) {
-            setUserEmail(res.user.email);
-            setIsLoggedIn(true);
-            history.push('/movies');
-          }
-        })
-        .catch(err => console.log(err));
-    }
-  }
-
-  useEffect(() => {
-    tokenCheck();
-  }, []);
-
   const handleSignOut = () => {
     if (localStorage.getItem('jwt')) {
       localStorage.removeItem('jwt')
@@ -104,6 +103,26 @@ export const App = () => {
       setUserEmail('');
       history.push("/");
     }
+  }
+
+  const handleOnUpdateUser = (user) => {
+    setIsLoading(true);
+
+    mainApi
+      .editUserInfo(user.name, user.email)
+      .then((user) => {
+        setCurrentUser(user);
+      })
+      .catch((err) => {
+        if (409) {
+          console.log('уже существует');
+        } else {
+          console.log('ошибка')
+        }
+      })
+      .finally(() => {
+        setIsLoading(false)
+      });
   }
 
   return (
@@ -132,13 +151,14 @@ export const App = () => {
           path="/profile"
           component={Profile}
           onSignOut={handleSignOut}
+          onUpdateUser={handleOnUpdateUser}
           isLoggedIn={isLoggedIn}
         />
         <Route path="/signup">
           <Register onRegister={handleRegister} isLoading={isLoading} />
         </Route>
         <Route path="/signin">
-          <Login handleLogin={handleLogin} isLoading={isLoading} />
+          <Login onLogin={handleLogin} isLoading={isLoading} />
         </Route>
       </Switch>
     </CurrentUserContext.Provider>
