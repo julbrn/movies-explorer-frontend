@@ -40,7 +40,7 @@ export function Login({ onLogin, isLoading }) {
                 onChange={handleChange}
               />
               <span
-                className="auth__field-error">Что-то пошло не так...</span>
+                className="auth__field-error">{errors.email || ''}</span>
             </label>
 
             <label className="auth__label" htmlFor="password">
@@ -61,7 +61,7 @@ export function Login({ onLogin, isLoading }) {
               <span
                 className="auth__field-error"
               >
-                Что-то пошло не так...
+                {errors.password || ''}
               </span>
             </label>
           </fieldset>
@@ -71,6 +71,7 @@ export function Login({ onLogin, isLoading }) {
           <button
             type="submit"
             className="button"
+            disabled={!isValid}
           >
             Войти
           </button>

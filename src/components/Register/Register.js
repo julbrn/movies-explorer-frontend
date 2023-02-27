@@ -33,7 +33,7 @@ export function Register({ onRegister, isLoading }) {
                 name="name"
                 id="name"
                 className="auth__field"
-                minLength={3}
+                minLength='3'
                 placeholder="Имя"
                 required
                 value={values.name || ''}
@@ -42,7 +42,7 @@ export function Register({ onRegister, isLoading }) {
               <span
                 className="auth__field-error"
               >
-                Что-то пошло не так...
+                {errors.name || ''}
               </span>
             </label>
 
@@ -63,7 +63,7 @@ export function Register({ onRegister, isLoading }) {
                 onChange={handleChange}
               />
               <span
-                className="auth__field-error">Что-то пошло не так...</span>
+                className="auth__field-error">{errors.email || ''}</span>
             </label>
 
             <label className="auth__label" htmlFor="password">
@@ -73,6 +73,8 @@ export function Register({ onRegister, isLoading }) {
                 Пароль
               </span>
               <input
+                minLength='4'
+                maxLength='20'
                 type="password"
                 name="password"
                 id="password"
@@ -85,7 +87,7 @@ export function Register({ onRegister, isLoading }) {
               <span
                 className="auth__field-error"
               >
-                Что-то пошло не так...
+                {errors.password || ''}
               </span>
             </label>
           </fieldset>
@@ -95,6 +97,7 @@ export function Register({ onRegister, isLoading }) {
           <button
             type="submit"
             className="button"
+            disabled={!isValid}
           >
             Зарегистрироваться
           </button>

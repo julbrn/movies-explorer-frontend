@@ -26,22 +26,20 @@ export const App = () => {
   const headerIsNull = location.pathname.includes('sign') || location.pathname.includes('404');
 
   useEffect(() => {
-    tokenCheck();
-  }, []);
-
-  const tokenCheck = () => {
-    const token = localStorage.getItem("jwt");
+    const token = localStorage.getItem('jwt');
+    const pathname = location.pathname;
     if (token) {
-      auth.getProfile(token)
+      auth.getToken(token)
         .then((res) => {
           if (res) {
-            setUserEmail(res.user.email);
             setIsLoggedIn(true);
+            setUserEmail(res.user.email);
+            history.push(pathname);
           }
         })
-        .catch(err => console.log(err));
-    }
-  }
+        .catch(err => console.log(err))
+    };
+  }, []);
 
   useEffect(() => {
     if (isLoggedIn) {
@@ -83,9 +81,9 @@ export const App = () => {
     auth
       .signIn(user.email, user.password)
       .then((data) => {
+        setIsLoggedIn(true);
         localStorage.setItem("jwt", data.token);
         setUserEmail(user.email);
-        setIsLoggedIn(true);
         history.push("/movies");
       })
       .catch((err) => {

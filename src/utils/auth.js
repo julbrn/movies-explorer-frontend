@@ -5,7 +5,6 @@ export const signUp = (email, password, name) => {
   return fetch(`${MAIN_BASE_URL}/signup`, {
     method: 'POST',
     headers: {
-      "Accept": "application/json",
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({ email, password, name })
@@ -25,11 +24,10 @@ export const signIn = (email, password) => {
     .then((res) => checkServerResponse(res))
 };
 
-export function getProfile(token) {
+export function getToken(token) {
   return fetch(`${MAIN_BASE_URL}/users/me`, {
     method: 'GET',
     headers: {
-      'Accept': 'application/json',
       'Authorization': `Bearer ${token}`,
       'Content-Type': 'application/json',
     },
