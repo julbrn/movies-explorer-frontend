@@ -6,6 +6,7 @@ import { useFormWithValidation } from "../../hooks/useFormValidation";
 
 export function Register({ onRegister, isLoading }) {
   const { values, handleChange, errors, isValid, resetForm, setValues } = useFormWithValidation();
+  console.log(errors);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -32,8 +33,10 @@ export function Register({ onRegister, isLoading }) {
                 type="text"
                 name="name"
                 id="name"
+                pattern='^[A-Za-zА-Яа-яЁё /s -]+$'
                 className="auth__field"
-                minLength='3'
+                minLength='2'
+                maxLength='40'
                 placeholder="Имя"
                 required
                 value={values.name || ''}
@@ -42,7 +45,8 @@ export function Register({ onRegister, isLoading }) {
               <span
                 className="auth__field-error"
               >
-                {errors.name || ''}
+                {errors.name ? (errors.name.includes('короче') ? errors.name : `Имя может содержать только латиницу,
+                кириллицу, пробел или дефис`) : ''}
               </span>
             </label>
 
@@ -56,6 +60,8 @@ export function Register({ onRegister, isLoading }) {
                 type="email"
                 name="email"
                 id="email"
+                minLength='3'
+                maxLength='40'
                 className="auth__field"
                 placeholder="e-mail"
                 value={values.email || ''}
@@ -63,7 +69,7 @@ export function Register({ onRegister, isLoading }) {
                 onChange={handleChange}
               />
               <span
-                className="auth__field-error">{errors.email || ''}</span>
+                className="auth__field-error">{errors.email ? 'Пожалуйста, введите корректный email-адрес.' : ''}</span>
             </label>
 
             <label className="auth__label" htmlFor="password">

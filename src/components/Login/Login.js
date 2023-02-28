@@ -40,7 +40,7 @@ export function Login({ onLogin, isLoading }) {
                 onChange={handleChange}
               />
               <span
-                className="auth__field-error">{errors.email || ''}</span>
+                className="auth__field-error">{errors.email ? 'Пожалуйста, введите корректный email-адрес.' : ''}</span>
             </label>
 
             <label className="auth__label" htmlFor="password">
