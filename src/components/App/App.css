@@ -157,23 +157,6 @@
   transition: opacity .5s linear;
 }
 
-.button_type_save {
-  margin-top: 202px;
-}
-
-@media screen and (max-width: 900px) {
-  .button_type_save {
-    margin-top: 190px;
-  }
-}
-
-@media screen and (max-width: 610px) {
-  .button_type_save {
-    margin-top: 0;
-    margin-bottom: 40px;
-  }
-}
-
 .button:disabled {
   background-color: #F8F8F8;
   color: #C2C2C2;
@@ -181,6 +164,10 @@
 
 .button:hover {
   opacity: .8;
+}
+
+.button_type_save {
+  margin-top: 20px;
 }
 
 @media screen and (max-width: 610px) {

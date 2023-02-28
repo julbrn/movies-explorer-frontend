@@ -21,6 +21,7 @@ export const App = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("");
+  const [profileErrorMessage, setProfileErrorMessage] = useState('');
 
   const location = useLocation();
   const headerIsNull = location.pathname.includes('sign') || location.pathname.includes('404');
@@ -103,20 +104,22 @@ export const App = () => {
     }
   }
 
-  const handleOnUpdateUser = (user) => {
+  const handleOnUpdateUser = (user, setisServerResponseVisible, setIsInputActive) => {
     setIsLoading(true);
 
     mainApi
       .editUserInfo(user.name, user.email)
       .then((user) => {
         setCurrentUser(user);
+        setisServerResponseVisible(true);
+        setIsInputActive(false);
+        setInterval(() => {
+          setisServerResponseVisible(false);
+        }, 3700);
       })
       .catch((err) => {
-        if (409) {
-          console.log('уже существует');
-        } else {
-          console.log('ошибка')
-        }
+        setProfileErrorMessage(err);
+        console.log(err)
       })
       .finally(() => {
         setIsLoading(false)
@@ -151,6 +154,7 @@ export const App = () => {
           onSignOut={handleSignOut}
           onUpdateUser={handleOnUpdateUser}
           isLoggedIn={isLoggedIn}
+          errorMessage={profileErrorMessage}
         />
         <Route path="/signup">
           <Register onRegister={handleRegister} isLoading={isLoading} />

@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, createRef, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Profile.css';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useFormWithValidation } from "../../hooks/useFormValidation";
 
-export const Profile = ({ onSignOut, onUpdateUser }) => {
-  const nameInput = createRef();
+export const Profile = ({ onSignOut, onUpdateUser, errorMessage }) => {
   const currentUser = useContext(CurrentUserContext);
-  const { values, handleChange, errors, isValid, resetForm, setValues } = useFormWithValidation();
+  const { values, handleChange, errors, isValid, setValues } = useFormWithValidation();
   const [isInputActive, setIsInputActive] = useState(false);
+  const [isServerResponseVisible, setisServerResponseVisible] = useState(false);
 
   useEffect(() => {
     setValues({
@@ -22,11 +22,12 @@ export const Profile = ({ onSignOut, onUpdateUser }) => {
     onUpdateUser({
       name: values.name,
       email: values.email
-    });
+    }, setisServerResponseVisible, setIsInputActive)
+
   }
 
   function handleEditClick() {
-    setIsInputActive(true);
+    setIsInputActive(true)
   };
 
   return (
@@ -46,7 +47,6 @@ export const Profile = ({ onSignOut, onUpdateUser }) => {
                 required
                 placeholder="Имя"
                 onChange={handleChange}
-                ref={nameInput}
                 disabled={!isInputActive}
                 minLength='2'
                 maxLength='40'
@@ -60,12 +60,16 @@ export const Profile = ({ onSignOut, onUpdateUser }) => {
             </label>
             <label className="profile__label">
               <span className="profile__field-name">E-mail</span>
-              <input className="profile__field profile__field_type_error" value={values.email || ''} type="email" name="email"
+              <input className="profile__field" value={values.email || ''} type="email" name="email"
                 id="email" required placeholder="e-mail" onChange={handleChange} disabled={!isInputActive} />
               <span
                 className="profile__field-error">{errors.email ? 'Пожалуйста, введите корректный email-адрес.' : ''}</span>
             </label>
           </fieldset>
+          <span className={`profile__server-response ${isServerResponseVisible ? 'profile__server-response_success' : ''}`}>Данные успешно обновлены!
+          </span>
+          <span className={`profile__server-response ${errorMessage.message ? 'profile__server-response_failure' : ''}`}>{errorMessage.message}
+          </span>
           {isInputActive ? (
             <button
               className="button button_type_save"

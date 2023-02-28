@@ -12,6 +12,7 @@ export function useFormWithValidation() {
     setValues({ ...values, [name]: value });
     setErrors({ ...errors, [name]: target.validationMessage });
     setIsValid(target.closest("form").checkValidity());
+    document.querySelectorAll(".profile__server-response")[1].classList.remove("profile__server-response_failure")
   };
 
   const resetForm = useCallback(
