@@ -6,7 +6,6 @@ import { useFormWithValidation } from "../../hooks/useFormValidation";
 
 export function Register({ onRegister, isLoading }) {
   const { values, handleChange, errors, isValid, resetForm, setValues } = useFormWithValidation();
-  console.log(errors);
 
   function handleSubmit(e) {
     e.preventDefault();

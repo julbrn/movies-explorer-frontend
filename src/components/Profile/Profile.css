@@ -92,6 +92,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 0 16px 0;
+  position: relative;
 }
 
 .profile__label:not(:last-of-type) {
@@ -106,9 +107,8 @@
   border-bottom: 1px solid var(--button-color);
 }
 
-.profile__input {
-  background-color: transparent;
-  width: 100%;
+.profile__field:invalid {
+  color: var(--mistake-color);
 }
 
 .profile__field-name {
@@ -122,6 +122,23 @@
   display: flex;
   flex-direction: column;
   margin-top: 202px;
+}
+
+.profile__field-error {
+  position: absolute;
+  bottom: 2px;
+  right: 0;
+  max-width: 100%;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.21;
+  color: var(--mistake-color);
 }
 
 
