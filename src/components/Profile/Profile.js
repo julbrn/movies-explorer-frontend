@@ -66,10 +66,12 @@ export const Profile = ({ onSignOut, onUpdateUser, errorMessage }) => {
                 className="profile__field-error">{errors.email ? 'Пожалуйста, введите корректный email-адрес.' : ''}</span>
             </label>
           </fieldset>
-          <span className={`profile__server-response ${isServerResponseVisible ? 'profile__server-response_success' : ''}`}>Данные успешно обновлены!
-          </span>
-          <span className={`profile__server-response ${errorMessage.message ? 'profile__server-response_failure' : ''}`}>{errorMessage.message}
-          </span>
+          <div className='profile__server-responses'>
+            <span className={`profile__server-response ${isServerResponseVisible ? 'profile__server-response_success' : ''}`}>Данные успешно обновлены!
+            </span>
+            <span className={`profile__server-response ${errorMessage.message ? 'profile__server-response_failure' : ''}`}>{errorMessage.message}
+            </span>
+          </div>
           {isInputActive ? (
             <button
               className="button button_type_save"
