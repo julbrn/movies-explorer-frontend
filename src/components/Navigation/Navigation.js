@@ -60,7 +60,8 @@ export const Navigation = ({ isBurgerMenuOpened, handleLinkClick, isLoggedIn }) 
             <NavLink
               className="nav__profile-btn"
               activeClassName="nav__profile-btn_active"
-              to="/profile">
+              to="/profile"
+              onClick={handleLinkClick}>
               Аккаунт
               <div className='nav__profile-icon'></div>
             </NavLink>

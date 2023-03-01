@@ -17,10 +17,12 @@ import mainApi from '../../utils/MainApi.js';
 export const App = () => {
   let history = useHistory();
   const [isBurgerMenuOpened, setIsBurgerMenuOpened] = useState(false);
-  const [currentUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({
+    name: '',
+    email: ''
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userEmail, setUserEmail] = useState("");
   const [profileErrorMessage, setProfileErrorMessage] = useState('');
   const [registerErrorMessage, setRegisterErrorMessage] = useState('');
   const [loginErrorMessage, setLoginErrorMessage] = useState('');
@@ -36,7 +38,6 @@ export const App = () => {
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
-            setUserEmail(res.user.email);
             history.push(pathname);
           }
         })
@@ -68,9 +69,9 @@ export const App = () => {
     setIsLoading(true);
     auth
       .signUp(newUser.email, newUser.password, newUser.name)
-      .then((res) => {
-        if (res) {
-          console.log(res);
+      .then((data) => {
+        if (data) {
+          console.log(data);
           history.push('/signin');
         }
       })
@@ -87,14 +88,14 @@ export const App = () => {
     auth
       .signIn(user.email, user.password)
       .then((data) => {
-        setIsLoggedIn(true);
-        localStorage.setItem("jwt", data.token);
-        setUserEmail(user.email);
-        history.push("/movies");
+        if (data) {
+          setIsLoggedIn(true);
+          localStorage.setItem("jwt", data.token);
+          history.push("/movies")
+        }
       })
       .catch((err) => {
         setLoginErrorMessage(err);
-        console.log(err);
       })
       .finally(() => {
         setIsLoading(false);
@@ -105,7 +106,6 @@ export const App = () => {
     if (localStorage.getItem('jwt')) {
       localStorage.removeItem('jwt')
       setIsLoggedIn(false);
-      setUserEmail('');
       history.push("/");
     }
   }
@@ -125,7 +125,6 @@ export const App = () => {
       })
       .catch((err) => {
         setProfileErrorMessage(err);
-        console.log(err)
       })
       .finally(() => {
         setIsLoading(false)
@@ -141,9 +140,6 @@ export const App = () => {
         <Route exact path="/" >
           <Main />
         </Route>
-        <Route path="/404">
-          <NotFound />
-        </Route>
         <ProtectedRoute
           path="/movies"
           component={Movies}
@@ -153,6 +149,7 @@ export const App = () => {
           path="/saved-movies"
           component={SavedMovies}
           isLoggedIn={isLoggedIn}
+          isLoading={isLoading}
         />
         <ProtectedRoute
           path="/profile"
@@ -161,12 +158,22 @@ export const App = () => {
           onUpdateUser={handleOnUpdateUser}
           isLoggedIn={isLoggedIn}
           errorMessage={profileErrorMessage}
+          isLoading={isLoading}
         />
         <Route path="/signup">
-          <Register onRegister={handleRegister} isLoading={isLoading} errorMessage={registerErrorMessage} />
+          <Register
+            onRegister={handleRegister}
+            isLoading={isLoading}
+            errorMessage={registerErrorMessage} />
         </Route>
         <Route path="/signin">
-          <Login onLogin={handleLogin} isLoading={isLoading} errorMessage={loginErrorMessage} />
+          <Login
+            onLogin={handleLogin}
+            isLoading={isLoading}
+            errorMessage={loginErrorMessage} />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </CurrentUserContext.Provider>
