@@ -1,16 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Register.css';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import { useFormWithValidation } from "../../hooks/useFormValidation";
 
-export function Register({ onRegister, isLoading }) {
-  const { values, handleChange, errors, isValid, resetForm, setValues } = useFormWithValidation();
+export function Register({ onRegister, isLoading, errorMessage }) {
+  const { values, handleChange, errors, isValid } = useFormWithValidation();
 
   function handleSubmit(e) {
     e.preventDefault();
     onRegister(values);
   }
+
+  useEffect(() => {
+    if (errorMessage.message) {
+      errorMessage.message = '';
+    }
+  }, [handleChange])
 
   return (
     <main className="auth">
@@ -97,7 +103,9 @@ export function Register({ onRegister, isLoading }) {
             </label>
           </fieldset>
         </div>
-
+        <span
+          className={`auth__server-response ${errorMessage.message && 'auth__server-response_failure'}`}>{errorMessage.message}
+        </span>
         <div className="auth__buttons">
           <button
             type="submit"

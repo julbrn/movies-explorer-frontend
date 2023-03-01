@@ -22,6 +22,8 @@ export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [profileErrorMessage, setProfileErrorMessage] = useState('');
+  const [registerErrorMessage, setRegisterErrorMessage] = useState('');
+  const [loginErrorMessage, setLoginErrorMessage] = useState('');
 
   const location = useLocation();
   const headerIsNull = location.pathname.includes('sign') || location.pathname.includes('404');
@@ -66,11 +68,14 @@ export const App = () => {
     setIsLoading(true);
     auth
       .signUp(newUser.email, newUser.password, newUser.name)
-      .then(() => {
-        history.push('/signin');
+      .then((res) => {
+        if (res) {
+          console.log(res);
+          history.push('/signin');
+        }
       })
       .catch((err) => {
-        console.log(err);
+        setRegisterErrorMessage(err);
       })
       .finally(() => {
         setIsLoading(false);
@@ -88,6 +93,7 @@ export const App = () => {
         history.push("/movies");
       })
       .catch((err) => {
+        setLoginErrorMessage(err);
         console.log(err);
       })
       .finally(() => {
@@ -157,10 +163,10 @@ export const App = () => {
           errorMessage={profileErrorMessage}
         />
         <Route path="/signup">
-          <Register onRegister={handleRegister} isLoading={isLoading} />
+          <Register onRegister={handleRegister} isLoading={isLoading} errorMessage={registerErrorMessage} />
         </Route>
         <Route path="/signin">
-          <Login onLogin={handleLogin} isLoading={isLoading} />
+          <Login onLogin={handleLogin} isLoading={isLoading} errorMessage={loginErrorMessage} />
         </Route>
       </Switch>
     </CurrentUserContext.Provider>

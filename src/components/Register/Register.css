@@ -150,3 +150,20 @@
   flex-direction: column;
   align-items: center;
 }
+
+.auth__server-response {
+  font-weight: 400;
+  font-size: 11px;
+  text-align: center;
+  padding: 0;
+  margin: auto 0 20px;
+  color: transparent;
+  transition: all 1.2s linear;
+}
+
+.auth__server-response_failure {
+  opacity: 1;
+  color: var(--mistake-color);
+}
+
+

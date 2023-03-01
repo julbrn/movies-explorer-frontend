@@ -9,7 +9,7 @@ export const signUp = (email, password, name) => {
     },
     body: JSON.stringify({ email, password, name })
   })
-    .then((res) => console.log(res))
+    .then((res) => checkServerResponse(res))
 
 };
 

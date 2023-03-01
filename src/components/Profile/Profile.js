@@ -16,6 +16,12 @@ export const Profile = ({ onSignOut, onUpdateUser, errorMessage }) => {
     })
   }, [currentUser]);
 
+  useEffect(() => {
+    if (errorMessage.message) {
+      errorMessage.message = '';
+    }
+  }, [handleChange])
+
   const handleSubmit = (e) => {
     e.preventDefault();
 

@@ -1,17 +1,23 @@
 import './Login.css';
 import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
-import { useState } from 'react';
+import { useEffect } from 'react';
 import { useFormWithValidation } from "../../hooks/useFormValidation";
 
-export function Login({ onLogin, isLoading }) {
-  const { values, handleChange, errors, isValid, resetForm, setValues } = useFormWithValidation();
+export function Login({ onLogin, isLoading, errorMessage }) {
+  const { values, handleChange, errors, isValid } = useFormWithValidation();
 
 
   function handleSubmit(e) {
     e.preventDefault();
     onLogin(values);
   }
+
+  useEffect(() => {
+    if (errorMessage.message) {
+      errorMessage.message = '';
+    }
+  }, [handleChange])
 
   return (
     <main className="auth">
@@ -66,7 +72,9 @@ export function Login({ onLogin, isLoading }) {
             </label>
           </fieldset>
         </div>
-
+        <span
+          className={`auth__server-response ${errorMessage.message && 'auth__server-response_failure'}`}>{errorMessage.message}
+        </span>
         <div className="auth__buttons">
           <button
             type="submit"
