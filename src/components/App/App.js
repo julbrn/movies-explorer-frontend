@@ -13,6 +13,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './App.css';
 import * as auth from "../../utils/auth";
 import mainApi from '../../utils/MainApi.js';
+import moviesApi from '../../utils/MoviesApi.js';
 
 export const App = () => {
   let history = useHistory();
@@ -26,9 +27,11 @@ export const App = () => {
   const [profileErrorMessage, setProfileErrorMessage] = useState('');
   const [registerErrorMessage, setRegisterErrorMessage] = useState('');
   const [loginErrorMessage, setLoginErrorMessage] = useState('');
-
+  const [movies, setMovies] = useState([]);
   const location = useLocation();
   const headerIsNull = location.pathname.includes('sign') || location.pathname.includes('404');
+
+
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
@@ -47,9 +50,10 @@ export const App = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      Promise.all([mainApi.getUserInfo(), mainApi.getInitialMovies()])
+      Promise.all([mainApi.getUserInfo(), moviesApi.getMovies()])
         .then(([userData, moviesData]) => {
           setCurrentUser(userData.user);
+          setMovies(moviesData);
         })
         .catch((err) => {
           console.log(err);
@@ -106,6 +110,7 @@ export const App = () => {
     if (localStorage.getItem('jwt')) {
       localStorage.removeItem('jwt')
       setIsLoggedIn(false);
+      localStorage.removeItem("allMovies");
       history.push("/");
     }
   }
@@ -144,6 +149,7 @@ export const App = () => {
           path="/movies"
           component={Movies}
           isLoggedIn={isLoggedIn}
+          movies={movies}
         />
         <ProtectedRoute
           path="/saved-movies"

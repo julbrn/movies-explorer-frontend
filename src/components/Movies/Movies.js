@@ -3,11 +3,11 @@ import { SearchForm } from './SearchForm/SearchForm';
 import { Footer } from '../Footer/Footer';
 import { MoviesCardList } from './MoviesCardList/MoviesCardList';
 
-export const Movies = () => (
+export const Movies = ({ movies }) => (
   <>
     <main className="movies">
       <SearchForm />
-      <MoviesCardList />
+      <MoviesCardList movies={movies} />
     </main>
     <Footer />
   </>

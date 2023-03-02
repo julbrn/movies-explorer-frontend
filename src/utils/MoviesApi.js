@@ -9,18 +9,20 @@ class MoviesApi {
   }
 
   getMovies() {
-    return fetch(`${this.serverUrl}/beatfilm-movies`, {
+    return fetch(`${this._serverUrl}/beatfilm-movies`, {
       headers: this._headers,
     },
     )
-      .then(checkServerResponse(res))
+      .then(checkServerResponse)
   };
 }
 
-export const moviesApi = new MoviesApi({
+const moviesApi = new MoviesApi({
   serverUrl: MOVIE_BASE_URL,
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
   }
 });
+
+export default moviesApi;
