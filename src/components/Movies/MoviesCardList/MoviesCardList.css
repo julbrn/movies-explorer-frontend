@@ -12,7 +12,7 @@
   display: grid;
   width: 100%;
   gap: 30px 24px;
-  grid-template-columns: repeat(auto-fit, minmax(284px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(284px, 364px));
   list-style-type: none;
   box-sizing: border-box;
 }

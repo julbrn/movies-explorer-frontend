@@ -16,6 +16,5 @@ export const Main = () => (
       <Techs />
       <AboutMe />
     </main>
-    <Footer />
   </>
 );

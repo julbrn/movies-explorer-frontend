@@ -8,12 +8,12 @@ import { Login } from '../Login/Login';
 import { Profile } from '../Profile/Profile';
 import { Movies } from '../Movies/Movies';
 import { Header } from '../Header/Header';
+import { Footer } from '../Footer/Footer';
 import { SavedMovies } from '../Movies/SavedMovies/SavedMovies';
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './App.css';
 import * as auth from "../../utils/auth";
 import mainApi from '../../utils/MainApi.js';
-import moviesApi from '../../utils/MoviesApi.js';
 
 export const App = () => {
   let history = useHistory();
@@ -27,10 +27,11 @@ export const App = () => {
   const [profileErrorMessage, setProfileErrorMessage] = useState('');
   const [registerErrorMessage, setRegisterErrorMessage] = useState('');
   const [loginErrorMessage, setLoginErrorMessage] = useState('');
-  const [movies, setMovies] = useState([]);
+  const [savedMoviesList, setSavedMoviesList] = useState([]);
+  const [updatedSavedMoviesList, setUpdatedSavedMoviesList] = useState([]);
   const location = useLocation();
   const headerIsNull = location.pathname.includes('sign') || location.pathname.includes('404');
-
+  const footerIsNull = location.pathname.includes('sign') || location.pathname.includes('404') || location.pathname.includes('profile');
 
 
   useEffect(() => {
@@ -50,10 +51,10 @@ export const App = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      Promise.all([mainApi.getUserInfo(), moviesApi.getMovies()])
-        .then(([userData, moviesData]) => {
+      Promise.all([mainApi.getUserInfo(), mainApi.getMyMovies()])
+        .then(([userData, savedMoviesData]) => {
           setCurrentUser(userData.user);
-          setMovies(moviesData);
+          setSavedMoviesList(savedMoviesData.reverse());
         })
         .catch((err) => {
           console.log(err);
@@ -106,18 +107,36 @@ export const App = () => {
       })
   }
 
-  const handleSignOut = () => {
-    if (localStorage.getItem('jwt')) {
-      localStorage.removeItem('jwt')
-      setIsLoggedIn(false);
-      localStorage.removeItem("allMovies");
-      history.push("/");
-    }
+  const handleMovieSave = (movieToBeSaved) => {
+    const isSavedMovie = savedMoviesList.some((usersMovie) => usersMovie.movieId === movieToBeSaved.movieId);
+
+    isSavedMovie
+      ? handleMovieDelete(movieToBeSaved)
+      : mainApi
+        .saveMovie(movieToBeSaved)
+        .then((newMovie) => setSavedMoviesList([...savedMoviesList, newMovie]))
+        .catch((err) => console.log(err));
   }
 
-  const handleOnUpdateUser = (user, setisServerResponseVisible, setIsInputActive) => {
-    setIsLoading(true);
+  const handleMovieDelete = (movieToBeDeleted) => {
+    const savedMovie = savedMoviesList.find(
+      (usersMovie) => usersMovie.movieId === movieToBeDeleted.id || usersMovie.movieId === movieToBeDeleted.movieId,
+    );
+    mainApi
+      .deleteMovie(savedMovie._id)
+      .then(() => {
+        const newSavedMoviesList = savedMoviesList.filter(
+          (usersMovie) => usersMovie.movieId !== movieToBeDeleted.movieId,
+        );
+        setSavedMoviesList(newSavedMoviesList);
+        setUpdatedSavedMoviesList(savedMoviesList);
+      })
+      .catch((err) => console.log(err));
+  }
 
+
+  const handleUserUpdate = (user, setisServerResponseVisible, setIsInputActive) => {
+    setIsLoading(true);
     mainApi
       .editUserInfo(user.name, user.email)
       .then((user) => {
@@ -136,6 +155,16 @@ export const App = () => {
       });
   }
 
+
+  const handleSignOut = () => {
+    if (localStorage.getItem('jwt')) {
+      localStorage.clear();
+      setIsLoggedIn(false);
+      history.push("/");
+    }
+  }
+
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       {!headerIsNull && (
@@ -149,19 +178,24 @@ export const App = () => {
           path="/movies"
           component={Movies}
           isLoggedIn={isLoggedIn}
-          movies={movies}
+          handleMovieSave={handleMovieSave}
+          handleMovieDelete={handleMovieDelete}
+          savedMoviesList={savedMoviesList}
+          savedMoviesPage={false}
         />
         <ProtectedRoute
           path="/saved-movies"
           component={SavedMovies}
           isLoggedIn={isLoggedIn}
           isLoading={isLoading}
+          handleMovieDelete={handleMovieDelete}
+          savedMoviesList={savedMoviesList}
         />
         <ProtectedRoute
           path="/profile"
           component={Profile}
           onSignOut={handleSignOut}
-          onUpdateUser={handleOnUpdateUser}
+          onUpdateUser={handleUserUpdate}
           isLoggedIn={isLoggedIn}
           errorMessage={profileErrorMessage}
           isLoading={isLoading}
@@ -182,6 +216,9 @@ export const App = () => {
           <NotFound />
         </Route>
       </Switch>
+      {!footerIsNull && (
+        <Footer />
+      )}
     </CurrentUserContext.Provider>
   );
 };

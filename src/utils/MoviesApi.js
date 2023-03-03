@@ -8,7 +8,7 @@ class MoviesApi {
     this._serverUrl = serverUrl;
   }
 
-  getMovies() {
+  getAllMovies() {
     return fetch(`${this._serverUrl}/beatfilm-movies`, {
       headers: this._headers,
     },
@@ -22,7 +22,7 @@ const moviesApi = new MoviesApi({
   headers: {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
-  }
+  },
 });
 
 export default moviesApi;

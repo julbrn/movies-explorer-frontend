@@ -40,6 +40,14 @@
   white-space: nowrap;
 }
 
+.search__input {
+  outline: none;
+}
+
+.search__label:focus-within {
+  border: 2px solid white;
+}
+
 @media screen and (max-width: 610px) {
   .search__input {
     font-size: 11px;

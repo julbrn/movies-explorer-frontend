@@ -9,6 +9,5 @@ export const SavedMovies = () => (
       <SearchForm />
       <SavedMoviesCardList />
     </main>
-    <Footer />
   </>
 );
