@@ -1,17 +1,19 @@
 import './MoviesCard.css';
 import { useLocation } from 'react-router-dom';
 import { MOVIE_BASE_URL, convertTimeToHours } from '../../../utils/constants';
+import { useEffect } from 'react';
 
 
 export const MoviesCard = ({ movieInfo, handleMovieSave, handleMovieDelete, saved }) => {
   const location = useLocation();
   const isLocationSaved = location.pathname.includes('saved');
+
   function handleMovieSaveClick() {
     handleMovieSave(movieInfo)
   }
 
   function handleMovieDeleteClick() {
-    handleMovieDelete(movieInfo)
+    handleMovieDelete(saved);
   }
   return (
     <li className="card">
@@ -30,7 +32,7 @@ export const MoviesCard = ({ movieInfo, handleMovieSave, handleMovieDelete, save
           ${(saved && !isLocationSaved) ? 'card__btn_active' : ''}`
           }
           aria-label="Избранное"
-          onClick={(isLocationSaved || saved) ? handleMovieDeleteClick : handleMovieSaveClick}></button>
+          onClick={saved ? handleMovieDeleteClick : handleMovieSaveClick}></button>
       </figure>
     </li >
   );

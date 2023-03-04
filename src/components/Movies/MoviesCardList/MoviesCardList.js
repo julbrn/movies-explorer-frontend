@@ -20,7 +20,7 @@ export const MoviesCardList = ({ isLoading,
         <>
           <ul className="movies__list">
             {moviesList.map(movieInfo => {
-              return <MoviesCard movieInfo={movieInfo} key={movieInfo.id}
+              return <MoviesCard movieInfo={movieInfo} key={movieInfo.id || movieInfo._id}
                 saved={getSavedMovie(savedMoviesList, movieInfo)}
                 handleMovieSave={handleMovieSave}
                 handleMovieDelete={handleMovieDelete} />

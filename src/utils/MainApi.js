@@ -67,7 +67,6 @@ class MainApi {
     return fetch(`${this._serverUrl}/movies/${id}`, {
       method: 'DELETE',
       headers: this._getHeaders(),
-      credentials: 'include',
     })
 
       .then(checkServerResponse)

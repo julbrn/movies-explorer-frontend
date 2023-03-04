@@ -62,6 +62,8 @@ export const App = () => {
     }
   }, [isLoggedIn]);
 
+
+
   function handleBurgerLinkClick() {
     setIsBurgerMenuOpened(false);
   }
@@ -108,19 +110,17 @@ export const App = () => {
   }
 
   const handleMovieSave = (movieToBeSaved) => {
-    const isSavedMovie = savedMoviesList.some((usersMovie) => usersMovie.movieId === movieToBeSaved.movieId);
 
-    isSavedMovie
-      ? handleMovieDelete(movieToBeSaved)
-      : mainApi
-        .saveMovie(movieToBeSaved)
-        .then((newMovie) => setSavedMoviesList([...savedMoviesList, newMovie]))
-        .catch((err) => console.log(err));
+    if (savedMoviesList.some((usersMovie) => usersMovie.movieId === movieToBeSaved.id)) { return };
+    mainApi
+      .saveMovie(movieToBeSaved)
+      .then((newMovie) => setSavedMoviesList([...savedMoviesList, newMovie]))
+      .catch((err) => console.log(err));
   }
 
   const handleMovieDelete = (movieToBeDeleted) => {
     const savedMovie = savedMoviesList.find(
-      (usersMovie) => usersMovie.movieId === movieToBeDeleted.id || usersMovie.movieId === movieToBeDeleted.movieId,
+      (usersMovie) => (usersMovie.movieId === movieToBeDeleted.id) || (usersMovie.movieId === movieToBeDeleted.movieId),
     );
     mainApi
       .deleteMovie(savedMovie._id)
@@ -133,7 +133,6 @@ export const App = () => {
       })
       .catch((err) => console.log(err));
   }
-
 
   const handleUserUpdate = (user, setisServerResponseVisible, setIsInputActive) => {
     setIsLoading(true);
