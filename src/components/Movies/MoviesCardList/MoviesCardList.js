@@ -1,6 +1,7 @@
 import './MoviesCardList.css';
 import { MoviesCard } from '../MoviesCard/MoviesCard.js';
 import { useEffect } from 'react';
+import { Preloader } from "../../Preloader/Preloader"
 
 export const MoviesCardList = ({ isLoading,
   moviesList,
@@ -13,14 +14,20 @@ export const MoviesCardList = ({ isLoading,
   }
   return (
     <div className='movies__wrapper'>
-      <ul className="movies__list">
-        {moviesList.map(movieInfo => {
-          return <MoviesCard movieInfo={movieInfo} key={movieInfo.id}
-            saved={getSavedMovie(savedMoviesList, movieInfo)}
-            handleMovieSave={handleMovieSave}
-            handleMovieDelete={handleMovieDelete} />
-        })}
-      </ul>
-      <button type="button" className="movies__btn">Ещё</button>
+      {isLoading ? (
+        <Preloader />
+      ) : (
+        <>
+          <ul className="movies__list">
+            {moviesList.map(movieInfo => {
+              return <MoviesCard movieInfo={movieInfo} key={movieInfo.id}
+                saved={getSavedMovie(savedMoviesList, movieInfo)}
+                handleMovieSave={handleMovieSave}
+                handleMovieDelete={handleMovieDelete} />
+            })}
+          </ul>
+          <button type="button" className="movies__btn">Ещё</button>
+        </>)
+      }
     </div>)
 };

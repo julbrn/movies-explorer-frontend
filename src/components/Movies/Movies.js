@@ -1,9 +1,9 @@
 import './Movies.css';
 import { SearchForm } from './SearchForm/SearchForm';
-import { Footer } from '../Footer/Footer';
 import { MoviesCardList } from './MoviesCardList/MoviesCardList';
 import { useState, useEffect } from 'react';
 import moviesApi from "../../utils/MoviesApi";
+import { filterShorts } from '../../utils/constants';
 
 export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList }) => {
   const [isShortsSelected, setIsShortsSelected] = useState(false);
@@ -11,7 +11,7 @@ export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList }) 
   const [allMovies, setAllMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
-  const [isNotFound, setIsNotFound] = useState(false);
+  const [isNoMatches, setIsNoMatches] = useState(false);
   const [serverMovies, setServerMovies] = useState([]);
 
   useEffect(() => {
@@ -27,16 +27,12 @@ export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList }) 
       const movies = JSON.parse(localStorage.getItem('movies'));
       setAllMovies(movies);
       if (localStorage.getItem('shortMovies') === 'true') {
-        setFilteredMovies(filterShortMovies(movies));
+        setFilteredMovies(filterShorts(movies));
       } else {
         setFilteredMovies(movies);
       }
     }
   }, []);
-
-  function filterShortMovies(movies) {
-    return movies.filter((movie) => movie.duration <= 40);
-  }
 
   function filterMovies(movies, query, shortsCheckbox) {
     const moviesByQuery = movies.filter((movie) => {
@@ -47,7 +43,7 @@ export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList }) 
     });
 
     if (shortsCheckbox) {
-      return filterShortMovies(moviesByQuery);
+      return filterShorts(moviesByQuery);
     } else {
       return moviesByQuery;
     }
@@ -55,9 +51,9 @@ export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList }) 
 
   function handleSetFilteredMovies(movies, query, shortsCheckbox) {
     const moviesList = filterMovies(movies, query, shortsCheckbox);
-    moviesList.length === 0 ? setIsNotFound(true) : setIsNotFound(false);
+    moviesList.length === 0 ? setIsNoMatches(true) : setIsNoMatches(false);
     setAllMovies(moviesList);
-    setFilteredMovies(shortsCheckbox ? filterShortMovies(moviesList) : moviesList);
+    setFilteredMovies(shortsCheckbox ? filterShorts(moviesList) : moviesList);
     localStorage.setItem('movies', JSON.stringify(moviesList));
   }
 
@@ -85,7 +81,7 @@ export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList }) 
   function toggleShortMovies() {
     setIsShortsSelected(!isShortsSelected);
     if (!isShortsSelected) {
-      setFilteredMovies(filterShortMovies(allMovies));
+      setFilteredMovies(filterShorts(allMovies));
     } else {
       setFilteredMovies(allMovies);
     }
@@ -104,7 +100,7 @@ export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList }) 
           handleMovieSave={handleMovieSave}
           handleMovieDelete={handleMovieDelete}
           savedMoviesList={savedMoviesList}
-          isMoviesFound={isNotFound} />
+          isMoviesFound={isNoMatches} />
       </main>
     </>
   );
