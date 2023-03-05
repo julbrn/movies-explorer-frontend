@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 import moviesApi from "../../utils/MoviesApi";
 import { filterShorts } from '../../utils/constants';
 
-export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList }) => {
+export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList, serverErrorMessage }) => {
   const [isShortsSelected, setIsShortsSelected] = useState(false);
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [allMovies, setAllMovies] = useState([]);
@@ -100,7 +100,8 @@ export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList }) 
           handleMovieSave={handleMovieSave}
           handleMovieDelete={handleMovieDelete}
           savedMoviesList={savedMoviesList}
-          isMoviesFound={isNoMatches} />
+          isNoMatches={isNoMatches}
+          serverErrorMessage={serverErrorMessage} />
       </main>
     </>
   );

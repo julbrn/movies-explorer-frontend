@@ -2,6 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+}
+
+.movies__error {
+  color: var(--font-color);
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.21;
+  text-align: center;
+  padding: 0 25px;
 }
 
 .movies__list {

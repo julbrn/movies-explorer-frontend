@@ -8,7 +8,8 @@ export const MoviesCardList = ({ isLoading,
   handleMovieSave,
   handleMovieDelete,
   savedMoviesList,
-  isMoviesFound }) => {
+  isNoMatches,
+  serverErrorMessage }) => {
   function getSavedMovie(savedMoviesList, movie) {
     return savedMoviesList.find((savedMovie) => savedMovie.movieId === movie.id);
   }
@@ -18,16 +19,22 @@ export const MoviesCardList = ({ isLoading,
         <Preloader />
       ) : (
         <>
-          <ul className="movies__list">
-            {moviesList.map(movieInfo => {
-              return <MoviesCard movieInfo={movieInfo} key={movieInfo.id || movieInfo._id}
-                saved={getSavedMovie(savedMoviesList, movieInfo)}
-                handleMovieSave={handleMovieSave}
-                handleMovieDelete={handleMovieDelete} />
-            })}
-          </ul>
-          <button type="button" className="movies__btn">Ещё</button>
-        </>)
-      }
-    </div>)
+          {isNoMatches ? (
+            <span className='movies__error'>Ничего не найдено  ¯\_(ツ)_/¯ </span>
+          ) : (
+            serverErrorMessage ? (<span className='movies__error'>{serverErrorMessage}</span>) : (
+              <>
+                <ul className="movies__list">
+                  {moviesList.map(movieInfo => {
+                    return <MoviesCard movieInfo={movieInfo} key={movieInfo.id || movieInfo._id}
+                      saved={getSavedMovie(savedMoviesList, movieInfo)}
+                      handleMovieSave={handleMovieSave}
+                      handleMovieDelete={handleMovieDelete} />
+                  })}
+                </ul>
+                <button type="button" className="movies__btn">Ещё</button></>))
+          }
+        </>
+      )}
+    </div >)
 };

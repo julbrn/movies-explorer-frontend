@@ -60,7 +60,7 @@ export const SavedMovies = ({ savedMoviesList, handleMovieDelete }) => {
     <>
       <main className="movies">
         <SearchForm handleMovieSearch={handleMovieSearch} toggleShortMovies={toggleShortMovies} shortMovies={isShortsSelected} />
-        <MoviesCardList moviesList={shownMovies} savedMoviesList={shownMovies} isMoviesFound={isNoMatches} handleMovieDelete={handleMovieDelete} />
+        <MoviesCardList moviesList={shownMovies} savedMoviesList={shownMovies} isNoMatches={isNoMatches} handleMovieDelete={handleMovieDelete} />
       </main>
     </>)
 };

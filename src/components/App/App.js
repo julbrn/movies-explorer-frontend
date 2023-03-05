@@ -26,6 +26,7 @@ export const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [profileErrorMessage, setProfileErrorMessage] = useState('');
   const [registerErrorMessage, setRegisterErrorMessage] = useState('');
+  const [serverErrorMessage, setServerErrorMessage] = useState('');
   const [loginErrorMessage, setLoginErrorMessage] = useState('');
   const [savedMoviesList, setSavedMoviesList] = useState([]);
   const [updatedSavedMoviesList, setUpdatedSavedMoviesList] = useState([]);
@@ -58,6 +59,7 @@ export const App = () => {
         })
         .catch((err) => {
           console.log(err);
+          setServerErrorMessage('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
         });
     }
   }, [isLoggedIn]);
@@ -181,6 +183,7 @@ export const App = () => {
           handleMovieDelete={handleMovieDelete}
           savedMoviesList={savedMoviesList}
           savedMoviesPage={false}
+          serverErrorMessage={serverErrorMessage}
         />
         <ProtectedRoute
           path="/saved-movies"
@@ -189,6 +192,7 @@ export const App = () => {
           isLoading={isLoading}
           handleMovieDelete={handleMovieDelete}
           savedMoviesList={savedMoviesList}
+          serverErrorMessage={serverErrorMessage}
         />
         <ProtectedRoute
           path="/profile"
