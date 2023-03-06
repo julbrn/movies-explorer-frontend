@@ -35,7 +35,6 @@ export const App = () => {
   const headerIsNull = location.includes('sign') || location.includes('404');
   const footerIsNull = location.includes('sign') || location.includes('404') || location.includes('profile');
 
-
   useEffect(() => {
     const token = localStorage.getItem('jwt');
     if (token) {
@@ -76,8 +75,6 @@ export const App = () => {
     }
   }, [isLoggedIn]);
 
-
-
   function handleBurgerLinkClick() {
     setIsBurgerMenuOpened(false);
   }
@@ -105,7 +102,6 @@ export const App = () => {
       })
   }
 
-
   function handleRegister(newUser) {
     setIsLoading(true);
     auth
@@ -122,7 +118,6 @@ export const App = () => {
         setIsLoading(false);
       })
   }
-
 
   const handleMovieSave = (movieToBeSaved) => {
     if (savedMoviesList.some((usersMovie) => (usersMovie.movieId === movieToBeSaved.id))) { return };
@@ -168,7 +163,6 @@ export const App = () => {
       });
   }
 
-
   const handleSignOut = () => {
     if (localStorage.getItem('jwt')) {
       localStorage.clear();
@@ -176,7 +170,6 @@ export const App = () => {
       history.push("/");
     }
   }
-
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
