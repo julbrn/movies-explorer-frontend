@@ -1,7 +1,7 @@
 import './MoviesCardList.css';
 import { MoviesCard } from '../MoviesCard/MoviesCard.js';
-import { useEffect } from 'react';
-import { Preloader } from "../../Preloader/Preloader"
+import { Preloader } from "../../Preloader/Preloader";
+import { ERR_MESSAGE } from '../../../utils/constants';
 
 export const MoviesCardList = ({ isLoading,
   moviesList,
@@ -20,7 +20,7 @@ export const MoviesCardList = ({ isLoading,
       ) : (
         <>
           {isNoMatches ? (
-            <span className='movies__error'>Ничего не найдено  ¯\_(ツ)_/¯ </span>
+            <span className='movies__error'>{ERR_MESSAGE.NOT_FOUND}</span>
           ) : (
             serverErrorMessage ? (<span className='movies__error'>{serverErrorMessage}</span>) : (
               <>

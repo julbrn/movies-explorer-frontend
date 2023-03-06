@@ -3,6 +3,7 @@ import './Profile.css';
 import { Preloader } from '../Preloader/Preloader';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useFormWithValidation } from "../../hooks/useFormValidation";
+import { ERR_MESSAGE } from '../../utils/constants'
 
 export const Profile = ({ onSignOut, onUpdateUser, errorMessage, isLoading }) => {
   const currentUser = useContext(CurrentUserContext);
@@ -68,8 +69,7 @@ export const Profile = ({ onSignOut, onUpdateUser, errorMessage, isLoading }) =>
                 <span
                   className="profile__field-error"
                 >
-                  {errors.name ? (errors.name.includes('короче') ? errors.name : `Имя может содержать только латиницу,
-                кириллицу, пробел или дефис.`) : ''}
+                  {errors.name ? (errors.name.includes('короче') ? errors.name : ERR_MESSAGE.INVALID_NAME) : ''}
                 </span>
               </label>
               <label className="profile__label">
@@ -77,7 +77,7 @@ export const Profile = ({ onSignOut, onUpdateUser, errorMessage, isLoading }) =>
                 <input className="profile__field" value={values.email || ''} type="email" name="email"
                   id="email" required placeholder="e-mail" onChange={handleChange} disabled={!isInputActive} />
                 <span
-                  className="profile__field-error">{errors.email ? 'Пожалуйста, введите корректный email-адрес.' : ''}</span>
+                  className="profile__field-error">{errors.email ? ERR_MESSAGE.INVALID_EMAIL : ''}</span>
               </label>
             </fieldset>
             <div className='profile__server-responses'>

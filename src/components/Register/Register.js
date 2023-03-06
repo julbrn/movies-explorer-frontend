@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { Preloader } from '../Preloader/Preloader';
 import logo from '../../images/logo.svg';
 import { useFormWithValidation } from "../../hooks/useFormValidation";
+import { ERR_MESSAGE } from '../../utils/constants'
 
 export function Register({ onRegister, isLoading, errorMessage }) {
   const { values, handleChange, errors, isValid } = useFormWithValidation();
@@ -52,8 +53,7 @@ export function Register({ onRegister, isLoading, errorMessage }) {
                 <span
                   className="auth__field-error"
                 >
-                  {errors.name ? (errors.name.includes('короче') ? errors.name : `Имя может содержать только латиницу,
-                кириллицу, пробел или дефис`) : ''}
+                  {errors.name ? (errors.name.includes('короче') ? errors.name : ERR_MESSAGE.INVALID_NAME) : ''}
                 </span>
               </label>
 
@@ -74,7 +74,7 @@ export function Register({ onRegister, isLoading, errorMessage }) {
                   onChange={handleChange}
                 />
                 <span
-                  className="auth__field-error">{errors.email ? 'Пожалуйста, введите корректный email-адрес.' : ''}</span>
+                  className="auth__field-error">{errors.email ? ERR_MESSAGE.INVALID_EMAIL : ''}</span>
               </label>
 
               <label className="auth__label" htmlFor="password">

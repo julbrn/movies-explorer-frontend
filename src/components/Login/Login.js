@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import logo from '../../images/logo.svg';
 import { Preloader } from '../Preloader/Preloader';
 import { useEffect } from 'react';
-import { useFormWithValidation } from "../../hooks/useFormValidation";
+import { useFormWithValidation } from '../../hooks/useFormValidation';
+import { ERR_MESSAGE } from '../../utils/constants'
 
 export function Login({ onLogin, isLoading, errorMessage }) {
   const { values, handleChange, errors, isValid } = useFormWithValidation();
@@ -49,7 +50,7 @@ export function Login({ onLogin, isLoading, errorMessage }) {
                   onChange={handleChange}
                 />
                 <span
-                  className="auth__field-error">{errors.email ? 'Пожалуйста, введите корректный email-адрес.' : ''}</span>
+                  className="auth__field-error">{errors.email ? ERR_MESSAGE.INVALID_EMAIL : ''}</span>
               </label>
 
               <label className="auth__label" htmlFor="password">

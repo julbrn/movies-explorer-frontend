@@ -1,8 +1,7 @@
 import './MoviesCard.css';
 import { useLocation } from 'react-router-dom';
-import { MOVIE_BASE_URL, convertTimeToHours } from '../../../utils/constants';
-import { useEffect } from 'react';
-
+import { MOVIE_BASE_URL } from '../../../utils/constants';
+import { convertTimeToHours } from '../../../utils/movieFunctions';
 
 export const MoviesCard = ({ movieInfo, handleMovieSave, handleMovieDelete, saved }) => {
   const location = useLocation();

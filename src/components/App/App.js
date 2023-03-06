@@ -14,6 +14,7 @@ import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import './App.css';
 import * as auth from "../../utils/auth";
 import mainApi from '../../utils/MainApi.js';
+import { ERR_MESSAGE } from '../../utils/constants'
 
 export const App = () => {
   let history = useHistory();
@@ -59,7 +60,7 @@ export const App = () => {
         })
         .catch((err) => {
           console.log(err);
-          setServerErrorMessage('Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз.');
+          setServerErrorMessage(ERR_MESSAGE.SERVER_ERROR);
         });
     }
   }, [isLoggedIn]);
@@ -72,24 +73,6 @@ export const App = () => {
   function onBurgerClick() {
     setIsBurgerMenuOpened(!isBurgerMenuOpened);
     document.querySelector(".nav_type_sidebar").classList.toggle("nav_type_sidebar-active");
-  }
-
-  function handleRegister(newUser) {
-    setIsLoading(true);
-    auth
-      .signUp(newUser.email, newUser.password, newUser.name)
-      .then((data) => {
-        if (data) {
-          console.log(data);
-          history.push('/signin');
-        }
-      })
-      .catch((err) => {
-        setRegisterErrorMessage(err);
-      })
-      .finally(() => {
-        setIsLoading(false);
-      })
   }
 
   function handleLogin(user) {
@@ -110,6 +93,25 @@ export const App = () => {
         setIsLoading(false);
       })
   }
+
+
+  function handleRegister(newUser) {
+    setIsLoading(true);
+    auth
+      .signUp(newUser.email, newUser.password, newUser.name)
+      .then((data) => {
+        if (data) {
+          handleLogin(newUser);
+        }
+      })
+      .catch((err) => {
+        setRegisterErrorMessage(err);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      })
+  }
+
 
   const handleMovieSave = (movieToBeSaved) => {
 

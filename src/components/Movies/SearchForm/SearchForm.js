@@ -2,6 +2,7 @@ import './SearchForm.css';
 import { FilterCheckbox } from '../FilterCheckbox/FilterCheckbox';
 import { useFormWithValidation } from "../../../hooks/useFormValidation";
 import { useState, useEffect } from 'react';
+import { ERR_MESSAGE } from '../../../utils/constants'
 
 export const SearchForm = ({ handleMovieSearch, toggleShortMovies, shortMovies }) => {
   const { values, handleChange } = useFormWithValidation();
@@ -46,7 +47,7 @@ export const SearchForm = ({ handleMovieSearch, toggleShortMovies, shortMovies }
         </label>
         <FilterCheckbox toggleShortMovies={toggleShortMovies} shortMovies={shortMovies} />
       </form>
-      {errorMessage ? (<p className='search__error'>Нужно ввести ключевое слово.</p>) : null}
+      {errorMessage ? (<p className='search__error'>{ERR_MESSAGE.EMPTY_QUERY}</p>) : null}
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { SearchForm } from './SearchForm/SearchForm';
 import { MoviesCardList } from './MoviesCardList/MoviesCardList';
 import { useState, useEffect } from 'react';
 import moviesApi from "../../utils/MoviesApi";
-import { filterShorts } from '../../utils/constants';
+import { filterShorts, filterMovies } from '../../utils/movieFunctions';
 
 export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList, serverErrorMessage }) => {
   const [isShortsSelected, setIsShortsSelected] = useState(false);
@@ -33,21 +33,6 @@ export const Movies = ({ handleMovieSave, handleMovieDelete, savedMoviesList, se
       }
     }
   }, []);
-
-  function filterMovies(movies, query, shortsCheckbox) {
-    const moviesByQuery = movies.filter((movie) => {
-      const movieRU = String(movie.nameRU).toLowerCase().trim();
-      const movieEN = String(movie.nameEN).toLowerCase().trim();
-      const searchedMovie = query.toLowerCase().trim();
-      return movieRU.indexOf(searchedMovie) !== -1 || movieEN.indexOf(searchedMovie) !== -1;
-    });
-
-    if (shortsCheckbox) {
-      return filterShorts(moviesByQuery);
-    } else {
-      return moviesByQuery;
-    }
-  }
 
   function handleSetFilteredMovies(movies, query, shortsCheckbox) {
     const moviesList = filterMovies(movies, query, shortsCheckbox);
