@@ -31,20 +31,19 @@ export const App = () => {
   const [loginErrorMessage, setLoginErrorMessage] = useState('');
   const [savedMoviesList, setSavedMoviesList] = useState([]);
   const [updatedSavedMoviesList, setUpdatedSavedMoviesList] = useState([]);
-  const location = useLocation();
-  const headerIsNull = location.pathname.includes('sign') || location.pathname.includes('404');
-  const footerIsNull = location.pathname.includes('sign') || location.pathname.includes('404') || location.pathname.includes('profile');
+  const location = useLocation().pathname;
+  const headerIsNull = location.includes('sign') || location.includes('404');
+  const footerIsNull = location.includes('sign') || location.includes('404') || location.includes('profile');
 
 
   useEffect(() => {
     const token = localStorage.getItem('jwt');
-    const pathname = location.pathname;
     if (token) {
       auth.getToken(token)
         .then((res) => {
           if (res) {
             setIsLoggedIn(true);
-            history.push(pathname);
+            history.push(location);
           }
         })
         .catch(err => console.log(err))

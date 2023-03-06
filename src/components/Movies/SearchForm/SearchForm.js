@@ -2,9 +2,11 @@ import './SearchForm.css';
 import { FilterCheckbox } from '../FilterCheckbox/FilterCheckbox';
 import { useFormWithValidation } from "../../../hooks/useFormValidation";
 import { useState, useEffect } from 'react';
-import { ERR_MESSAGE } from '../../../utils/constants'
+import { ERR_MESSAGE } from '../../../utils/constants';
+
 
 export const SearchForm = ({ handleMovieSearch, toggleShortMovies, shortMovies }) => {
+
   const { values, handleChange } = useFormWithValidation();
   const [errorMessage, setErrorMessage] = useState(false);
   const searchQuery = values.movie;
@@ -13,6 +15,9 @@ export const SearchForm = ({ handleMovieSearch, toggleShortMovies, shortMovies }
     setErrorMessage(false);
   }, [searchQuery]);
 
+  useEffect(() => {
+    values.movie = localStorage.getItem('movieSearch');
+  }, []);
 
   function handleSubmit(evt) {
     evt.preventDefault();

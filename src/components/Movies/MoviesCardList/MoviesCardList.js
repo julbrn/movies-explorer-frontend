@@ -2,6 +2,7 @@ import './MoviesCardList.css';
 import { MoviesCard } from '../MoviesCard/MoviesCard.js';
 import { Preloader } from "../../Preloader/Preloader";
 import { ERR_MESSAGE } from '../../../utils/constants';
+import { useLocation } from 'react-router-dom';
 
 export const MoviesCardList = ({ isLoading,
   moviesList,
@@ -10,6 +11,7 @@ export const MoviesCardList = ({ isLoading,
   savedMoviesList,
   isNoMatches,
   serverErrorMessage }) => {
+  const location = useLocation().pathname;
   function getSavedMovie(savedMoviesList, movie) {
     return savedMoviesList.find((savedMovie) => savedMovie.movieId === movie.id);
   }
@@ -32,7 +34,8 @@ export const MoviesCardList = ({ isLoading,
                       handleMovieDelete={handleMovieDelete} />
                   })}
                 </ul>
-                <button type="button" className="movies__btn">Ещё</button></>))
+                {location === '/movies' ? (<button type="button" className="movies__btn">Ещё</button>) : null}
+              </>))
           }
         </>
       )}
