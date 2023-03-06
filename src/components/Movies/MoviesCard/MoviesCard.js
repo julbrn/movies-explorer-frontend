@@ -8,11 +8,11 @@ export const MoviesCard = ({ movieInfo, handleMovieSave, handleMovieDelete, save
   const isLocationSaved = location.pathname.includes('saved');
 
   function handleMovieSaveClick() {
-    handleMovieSave(movieInfo)
+    handleMovieSave(movieInfo);
   }
 
   function handleMovieDeleteClick() {
-    handleMovieDelete(saved);
+    handleMovieDelete(movieInfo);
   }
   return (
     <li className="card">
@@ -31,7 +31,7 @@ export const MoviesCard = ({ movieInfo, handleMovieSave, handleMovieDelete, save
           ${(saved && !isLocationSaved) ? 'card__btn_active' : ''}`
           }
           aria-label="Избранное"
-          onClick={saved ? handleMovieDeleteClick : handleMovieSaveClick}></button>
+          onClick={(saved || isLocationSaved) ? handleMovieDeleteClick : handleMovieSaveClick}></button>
       </figure>
     </li >
   );

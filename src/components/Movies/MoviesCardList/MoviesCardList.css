@@ -28,7 +28,15 @@
   box-sizing: border-box;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1279px) {
+  .movies__list {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px 50px;
+  }
+}
+
+
+@media screen and (max-width: 810px) {
   .movies__list {
     max-width: 400px;
     margin: 70px auto 80px;

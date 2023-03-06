@@ -34,7 +34,7 @@ export const MoviesCardList = ({ isLoading,
                       handleMovieDelete={handleMovieDelete} />
                   })}
                 </ul>
-                {location === '/movies' ? (<button type="button" className="movies__btn">Ещё</button>) : null}
+                {location === '/movies' ? (<button type="button" className="movies__btn" aria-label='Показать ещё'>Ещё</button>) : null}
               </>))
           }
         </>

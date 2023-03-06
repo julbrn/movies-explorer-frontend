@@ -3,10 +3,11 @@ import { FilterCheckbox } from '../FilterCheckbox/FilterCheckbox';
 import { useFormWithValidation } from "../../../hooks/useFormValidation";
 import { useState, useEffect } from 'react';
 import { ERR_MESSAGE } from '../../../utils/constants';
+import { useLocation } from 'react-router-dom';
 
 
 export const SearchForm = ({ handleMovieSearch, toggleShortMovies, shortMovies }) => {
-
+  const location = useLocation().pathname;
   const { values, handleChange } = useFormWithValidation();
   const [errorMessage, setErrorMessage] = useState(false);
   const searchQuery = values.movie;
@@ -16,7 +17,9 @@ export const SearchForm = ({ handleMovieSearch, toggleShortMovies, shortMovies }
   }, [searchQuery]);
 
   useEffect(() => {
-    values.movie = localStorage.getItem('movieSearch');
+    if (location === '/movies') {
+      values.movie = localStorage.getItem('movieSearch')
+    };
   }, []);
 
   function handleSubmit(evt) {

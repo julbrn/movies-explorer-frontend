@@ -30,7 +30,7 @@ export const App = () => {
   const [serverErrorMessage, setServerErrorMessage] = useState('');
   const [loginErrorMessage, setLoginErrorMessage] = useState('');
   const [savedMoviesList, setSavedMoviesList] = useState([]);
-  const [updatedSavedMoviesList, setUpdatedSavedMoviesList] = useState([]);
+  const [updatedSavedMovieList, setUpdatedSavedMoviesList] = useState([]);
   const location = useLocation().pathname;
   const headerIsNull = location.includes('sign') || location.includes('404');
   const footerIsNull = location.includes('sign') || location.includes('404') || location.includes('profile');
@@ -52,10 +52,22 @@ export const App = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      Promise.all([mainApi.getUserInfo(), mainApi.getMyMovies()])
-        .then(([userData, savedMoviesData]) => {
-          setCurrentUser(userData.user);
+      mainApi.getMyMovies()
+        .then((savedMoviesData) => {
           setSavedMoviesList(savedMoviesData.reverse());
+        })
+        .catch((err) => {
+          console.log(err);
+          setServerErrorMessage(ERR_MESSAGE.SERVER_ERROR);
+        });
+    }
+  }, [isLoggedIn, updatedSavedMovieList]);
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      mainApi.getMyMovies()
+        .then((userData) => {
+          setCurrentUser(userData.user);
         })
         .catch((err) => {
           console.log(err);
@@ -113,8 +125,7 @@ export const App = () => {
 
 
   const handleMovieSave = (movieToBeSaved) => {
-
-    if (savedMoviesList.some((usersMovie) => usersMovie.movieId === movieToBeSaved.id)) { return };
+    if (savedMoviesList.some((usersMovie) => (usersMovie.movieId === movieToBeSaved.id))) { return };
     mainApi
       .saveMovie(movieToBeSaved)
       .then((newMovie) => setSavedMoviesList([...savedMoviesList, newMovie]))

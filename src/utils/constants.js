@@ -9,3 +9,12 @@ export const ERR_MESSAGE = {
   INVALID_NAME: 'Имя может содержать только латиницу, кириллицу, пробел или дефис.',
   NOT_FOUND: 'Ничего не найдено  ¯\_(ツ)_/¯',
 };
+
+export const DESKTOP_WIDTH = 1280;
+export const TABLET_WIDTH = 768;
+export const MOBILE_WIDTH = 320;
+
+export const DESKTOP_CARD_QUANTITY = { total: 12, more: 3 };
+export const TABLET_CARD_QUANTITY = { total: 8, more: 2 }
+export const MOBILE_CARD_QUANTITY = { total: 5, more: 2 }
+
