@@ -74,16 +74,25 @@ export const Profile = ({ onSignOut, onUpdateUser, errorMessage, isLoading }) =>
               </label>
               <label className="profile__label">
                 <span className="profile__field-name">E-mail</span>
-                <input className="profile__field" value={values.email || ''} type="email" name="email"
-                  id="email" required placeholder="e-mail" onChange={handleChange} disabled={!isInputActive} />
+                <input
+                  className="profile__field"
+                  value={values.email || ''}
+                  type="email"
+                  name="email"
+                  id="email"
+                  required placeholder="e-mail"
+                  onChange={handleChange}
+                  disabled={!isInputActive} />
                 <span
                   className="profile__field-error">{errors.email ? ERR_MESSAGE.INVALID_EMAIL : ''}</span>
               </label>
             </fieldset>
             <div className='profile__server-responses'>
-              <span className={`profile__server-response ${isServerResponseVisible ? 'profile__server-response_success' : ''}`}>Данные успешно обновлены!
+              <span
+                className={`profile__server-response ${isServerResponseVisible ? 'profile__server-response_success' : ''}`}>Данные успешно обновлены!
               </span>
-              <span className={`profile__server-response ${errorMessage.message ? 'profile__server-response_failure' : ''}`}>{errorMessage.message}
+              <span
+                className={`profile__server-response ${errorMessage.message ? 'profile__server-response_failure' : ''}`}>{errorMessage.message}
               </span>
             </div>
             {isInputActive ? (
@@ -96,8 +105,16 @@ export const Profile = ({ onSignOut, onUpdateUser, errorMessage, isLoading }) =>
               </button>
             ) : (
               <div className="profile__buttons">
-                <button type="button" className="link link_type_edit" onClick={handleEditClick}>Редактировать</button>
-                <button type="button" className="link link_type_logout" onClick={onSignOut}>Выйти из аккаунта</button>
+                <button
+                  type="button"
+                  className="link link_type_edit"
+                  onClick={handleEditClick}>
+                    Редактировать</button>
+                <button
+                  type="button"
+                  className="link link_type_logout"
+                  onClick={onSignOut}>
+                    Выйти из аккаунта</button>
               </div>)}
           </form>
         )

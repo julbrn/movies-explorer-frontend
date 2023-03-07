@@ -64,7 +64,7 @@ export const App = () => {
 
   useEffect(() => {
     if (isLoggedIn) {
-      mainApi.getMyMovies()
+      mainApi.getUserInfo()
         .then((userData) => {
           setCurrentUser(userData.user);
         })

@@ -10,8 +10,8 @@ export const ERR_MESSAGE = {
   NOT_FOUND: 'Ничего не найдено  ¯\_(ツ)_/¯',
 };
 
-export const DESKTOP_WIDTH = 1280;
-export const TABLET_WIDTH = 768;
+export const DESKTOP_WIDTH = 1000;
+export const TABLET_WIDTH = 700;
 export const MOBILE_WIDTH = 320;
 
 export const DESKTOP_CARD_QUANTITY = { total: 12, more: 3 };
