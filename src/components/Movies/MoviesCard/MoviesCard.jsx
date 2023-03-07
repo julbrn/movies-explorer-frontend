@@ -28,7 +28,7 @@ export const MoviesCard = ({
             {convertTimeToHours(movieInfo.duration)}
           </p>
         </figcaption>
-        <a href={movieInfo.trailerLink} target="_blank">
+        <a href={movieInfo.trailerLink} target="_blank" rel="noreferrer">
           <img
             className="card__img"
             src={

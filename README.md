@@ -9,6 +9,8 @@ Backend: https://api.julbrndiploma.nomoredomainsclub.ru
 
 ## Ссылка на пулл-реквест
 
+https://github.com/julbrn/movies-explorer-frontend/pull/2
+
 ## Доступные команды
 
 ### `npm start`
