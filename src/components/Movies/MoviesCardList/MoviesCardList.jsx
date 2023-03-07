@@ -70,9 +70,9 @@ export const MoviesCardList = ({
       ) : (
         <>
           {isNoMatches ? (
-            <span className="movies__error">{ERR_MESSAGE.NOT_FOUND}</span>
+            <p className="movies__error">{ERR_MESSAGE.NOT_FOUND}</p>
           ) : serverErrorMessage ? (
-            <span className="movies__error">{serverErrorMessage}</span>
+            <p className="movies__error">{serverErrorMessage}</p>
           ) : (
             <>
               <ul className="movies__list">

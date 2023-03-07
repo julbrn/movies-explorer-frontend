@@ -46,11 +46,12 @@ export const SearchForm = ({ handleMovieSearch, toggleShortMovies, shortMovies }
             required
             onChange={handleChange}
             value={values.movie || ''}
+            aria-label="Ввод фильма для поиска"
           />
           <button
             className="search__button"
             type="submit"
-            aria-label="Искать"
+            aria-label="Кнопка для поиска фильма"
           />
         </label>
         <FilterCheckbox toggleShortMovies={toggleShortMovies} shortMovies={shortMovies} />

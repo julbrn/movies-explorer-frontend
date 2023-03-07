@@ -1,9 +1,11 @@
-import './FilterCheckbox.css';
+import "./FilterCheckbox.css";
 
 export const FilterCheckbox = ({ toggleShortMovies, shortMovies }) => (
   <>
-    <div className="shorts">
-      <span className="shorts__title">Короткометражки</span>
+    <div className="shorts" role="checkbox" aria-describedby="shorts__title">
+      <span className="shorts__title" id="shorts__title">
+        Короткометражки
+      </span>
       <label className="shorts__label" htmlFor="shorts">
         <input
           onChange={toggleShortMovies}
