@@ -20,7 +20,7 @@ export const SearchForm = ({ handleMovieSearch, toggleShortMovies, shortMovies }
     if (location === '/movies') {
       values.movie = localStorage.getItem('movieSearch')
     };
-  }, []);
+  }, [location, values]);
 
   function handleSubmit(evt) {
     evt.preventDefault();

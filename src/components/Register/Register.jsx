@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "./Register.css";
 import { Link } from "react-router-dom";
 import { Preloader } from "../Preloader/Preloader";

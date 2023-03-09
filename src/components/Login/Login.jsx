@@ -2,7 +2,7 @@ import "./Login.css";
 import { Link } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import { Preloader } from "../Preloader/Preloader";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useFormWithValidation } from "../../hooks/useFormValidation";
 import { ERR_MESSAGE } from "../../utils/constants";
 
@@ -18,7 +18,7 @@ export function Login({ onLogin, isLoading, errorMessage, isInputDisabled }) {
     if (errorMessage.message) {
       errorMessage.message = "";
     }
-  }, [handleChange]);
+  }, [handleChange, errorMessage]);
 
   return (
     <main className="auth">

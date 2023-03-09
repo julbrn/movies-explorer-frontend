@@ -22,13 +22,13 @@ export const Profile = ({
       name: currentUser.name,
       email: currentUser.email,
     });
-  }, [currentUser]);
+  }, [currentUser, setValues]);
 
   useEffect(() => {
     if (errorMessage.message) {
       errorMessage.message = "";
     }
-  }, [handleChange]);
+  }, [handleChange, errorMessage]);
 
   useEffect(() => {
     if (
