@@ -39,9 +39,9 @@ export const MoviesCardList = ({
   }
 
   useEffect(() => {
-    if (cardRow.total <= moviesList.length) {
+    if (cardRow.total < moviesList.length) {
       setIsButtonHidden(false);
-    } else if (cardRow.total > moviesList.length) {
+    } else if (cardRow.total >= moviesList.length) {
       setIsButtonHidden(true);
     }
   }, [moviesList.length, cardRow.total]);

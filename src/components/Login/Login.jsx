@@ -63,6 +63,7 @@ export function Login({ onLogin, isLoading, errorMessage, isInputDisabled }) {
                   required
                   onChange={handleChange}
                   disabled={isInputDisabled}
+                  value={values.password || ""}
                 />
                 <span className="auth__field-error">
                   {errors.password || ""}

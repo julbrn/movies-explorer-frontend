@@ -71,7 +71,7 @@ export function Register({
                   name="email"
                   id="email"
                   className={`auth__field ${
-                    errorMessage ? "auth__field_invalid" : ""
+                    errorMessage.message ? "auth__field_invalid" : ""
                   }`}
                   placeholder="e-mail"
                   required
