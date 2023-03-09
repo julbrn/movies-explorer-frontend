@@ -16,6 +16,7 @@
 }
 
 .shorts__checkbox {
+  -webkit-appearance: none;
   -webkit-tap-highlight-color: transparent;
   background-color: var(--background-color);
   color: var(--background-color);
