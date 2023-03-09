@@ -1,8 +1,8 @@
-import './SavedMovies.css';
-import { SearchForm } from '../SearchForm/SearchForm';
-import { MoviesCardList } from '../MoviesCardList/MoviesCardList';
-import { useState, useEffect } from 'react';
-import { filterShorts, filterMovies } from '../../../utils/movieFunctions';
+import "./SavedMovies.css";
+import { SearchForm } from "../SearchForm/SearchForm";
+import { MoviesCardList } from "../MoviesCardList/MoviesCardList";
+import { useState, useEffect } from "react";
+import { filterShorts, filterMovies } from "../../../utils/movieFunctions";
 
 export const SavedMovies = ({ savedMoviesList, handleMovieDelete }) => {
   const [isShortsSelected, setIsShortsSelected] = useState(false);
@@ -10,17 +10,16 @@ export const SavedMovies = ({ savedMoviesList, handleMovieDelete }) => {
   const [isNoMatches, setIsNoMatches] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem('shortSavedMovies') === 'true') {
-      setIsShortsSelected(true);
-      setShownMovies(filterShorts(savedMoviesList));
-    } else {
-      setIsShortsSelected(false);
-      setShownMovies(savedMoviesList);
-    }
+    setIsShortsSelected(false);
+    setShownMovies(savedMoviesList);
   }, [savedMoviesList]);
 
   function handleMovieSearch(inputValue) {
-    const filteredMovies = filterMovies(savedMoviesList, inputValue, isShortsSelected);
+    const filteredMovies = filterMovies(
+      savedMoviesList,
+      inputValue,
+      isShortsSelected
+    );
     if (filteredMovies.length !== 0) {
       setShownMovies(filteredMovies);
       setIsNoMatches(false);
@@ -32,11 +31,11 @@ export const SavedMovies = ({ savedMoviesList, handleMovieDelete }) => {
   function toggleShortMovies() {
     if (isShortsSelected) {
       setIsShortsSelected(false);
-      localStorage.setItem('shortSavedMovies', false);
+      localStorage.setItem("shortSavedMovies", false);
       setShownMovies(savedMoviesList);
     } else {
       setIsShortsSelected(true);
-      localStorage.setItem('shortSavedMovies', true);
+      localStorage.setItem("shortSavedMovies", true);
       setShownMovies(filterShorts(savedMoviesList));
     }
   }
@@ -44,8 +43,18 @@ export const SavedMovies = ({ savedMoviesList, handleMovieDelete }) => {
   return (
     <>
       <main className="movies">
-        <SearchForm handleMovieSearch={handleMovieSearch} toggleShortMovies={toggleShortMovies} shortMovies={isShortsSelected} />
-        <MoviesCardList moviesList={shownMovies} savedMoviesList={shownMovies} isNoMatches={isNoMatches} handleMovieDelete={handleMovieDelete} />
+        <SearchForm
+          handleMovieSearch={handleMovieSearch}
+          toggleShortMovies={toggleShortMovies}
+          shortMovies={isShortsSelected}
+        />
+        <MoviesCardList
+          moviesList={shownMovies}
+          savedMoviesList={shownMovies}
+          isNoMatches={isNoMatches}
+          handleMovieDelete={handleMovieDelete}
+        />
       </main>
-    </>)
+    </>
+  );
 };

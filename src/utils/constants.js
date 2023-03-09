@@ -1,5 +1,6 @@
 export const MOVIE_BASE_URL = 'https://api.nomoreparties.co';
-export const MAIN_BASE_URL = 'https://api.julbrndiploma.nomoredomainsclub.ru';
+//export const MAIN_BASE_URL = 'https://api.julbrndiploma.nomoredomainsclub.ru';
+export const MAIN_BASE_URL = 'http://localhost:3000';
 export const shortMovie = 40;
 
 export const ERR_MESSAGE = {

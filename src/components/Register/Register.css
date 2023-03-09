@@ -34,7 +34,7 @@
 
 
 @media screen and (max-width: 610px) {
-  .auth__fields-wrapper{
+  .auth__fields-wrapper {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -78,6 +78,7 @@
     width: 260px;
   }
 }
+
 .auth__field-name {
   padding: 0 0 5px;
   margin: 0;
@@ -86,6 +87,7 @@
   line-height: 1.21;
   color: var(--semi-transparent);
 }
+
 .auth__field {
   width: 100%;
   color: var(--font-color-light);
@@ -109,6 +111,10 @@
 }
 
 .auth__field:invalid {
+  color: var(--mistake-color);
+}
+
+.auth__field_invalid {
   color: var(--mistake-color);
 }
 
@@ -165,5 +171,3 @@
   opacity: 1;
   color: var(--mistake-color);
 }
-
-
