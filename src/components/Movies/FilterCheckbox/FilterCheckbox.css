@@ -6,6 +6,7 @@
 }
 
 .shorts__label {
+  -webkit-tap-highlight-color: transparent;
   box-sizing: border-box;
   display: inline-block;
   height: 14px;
@@ -15,8 +16,11 @@
 }
 
 .shorts__checkbox {
-  background-color: transparent;
-  color: transparent;
+  -webkit-appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  background-color: var(--background-color);
+  color: var(--background-color);
+  border: none;
   border-radius: 50%;
   left: 1px;
   position: absolute;
@@ -51,11 +55,11 @@
   border-radius: 50%;
 }
 
-.shorts__checkbox:checked + .shorts__toggle {
+.shorts__checkbox:checked+.shorts__toggle {
   background-color: var(--accent-color);
 }
 
-.shorts__checkbox:checked + .shorts__toggle:before {
+.shorts__checkbox:checked+.shorts__toggle:before {
   transform: translateX(20px);
   background-color: var(--font-color-light);
 }

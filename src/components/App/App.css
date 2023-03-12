@@ -35,6 +35,9 @@
   flex-grow: 1;
   margin: 0 auto;
   padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .link {
@@ -157,8 +160,23 @@
   transition: opacity .5s linear;
 }
 
+.button:disabled {
+  background-color: #F8F8F8;
+  color: #C2C2C2;
+}
+
 .button:hover {
   opacity: .8;
+}
+
+.button_type_save {
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 610px) {
+  .button_type_save {
+    margin-bottom: 40px;
+  }
 }
 
 @media screen and (max-width: 610px) {

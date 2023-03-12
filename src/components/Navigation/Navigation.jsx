@@ -1,14 +1,12 @@
 import './Navigation.css';
-import { NavLink, useLocation, Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 
-export const Navigation = ({ isBurgerMenuOpened, handleLinkClick }) => {
-  const location = useLocation();
-  const isLocationAuthorized = location.pathname.includes('profile') || location.pathname.includes('movies');
+export const Navigation = ({ isBurgerMenuOpened, handleLinkClick, isLoggedIn }) => {
 
   return (
-    <nav className={`nav ${isLocationAuthorized ? "nav_type_sidebar" : ""} `}>
+    <nav className={`nav ${isLoggedIn ? "nav_type_sidebar" : ""} `}>
       <ul className="nav__links nav__links_type_movies">
-        {isLocationAuthorized && (
+        {isLoggedIn && (
           <>
             {isBurgerMenuOpened && (
               <>
@@ -43,7 +41,7 @@ export const Navigation = ({ isBurgerMenuOpened, handleLinkClick }) => {
 
       </ul>
       <ul className="nav__links nav__links_type_profile">
-        {!isLocationAuthorized && (
+        {!isLoggedIn && (
           <>
             <li>
               <Link
@@ -57,12 +55,13 @@ export const Navigation = ({ isBurgerMenuOpened, handleLinkClick }) => {
             </li>
           </>
         )}
-        {isLocationAuthorized && (
+        {isLoggedIn && (
           <li>
             <NavLink
               className="nav__profile-btn"
               activeClassName="nav__profile-btn_active"
-              to="/profile">
+              to="/profile"
+              onClick={handleLinkClick}>
               Аккаунт
               <div className='nav__profile-icon'></div>
             </NavLink>

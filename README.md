@@ -2,9 +2,14 @@
 
 ## Фронтенд дипломного проекта
 
-- IP: 51.250.11.190
+IP: 51.250.11.190
 
-- https://julbrndiploma.nomoredomainsclub.ru
+Frontend: https://julbrndiploma.nomoredomainsclub.ru
+Backend: https://api.julbrndiploma.nomoredomainsclub.ru
+
+## Ссылка на пулл-реквест
+
+https://github.com/julbrn/movies-explorer-frontend/pull/2
 
 ## Доступные команды
 
